@@ -24,4 +24,7 @@
     <string name="back_to_shops">Back to shops list</string>
     <string name="shops_finish_message">You help to make our shop better</string>
     <string name="shops_finish_thank_you">Thank you!</string>
+    <string name="leave_feedback">Leave Feedback</string>
+    <string name="feedback_hint">Feedback</string>
+    <string name="save">Save</string>
 </resources>
