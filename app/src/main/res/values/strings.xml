@@ -21,4 +21,7 @@
     <string name="finish">Finish</string>
     <string name="withdraw_finish_message">Money is on the way!</string>
     <string name="back_to_profile">Back to profile</string>
+    <string name="back_to_shops">Back to shops list</string>
+    <string name="shops_finish_message">You help to make our shop better</string>
+    <string name="shops_finish_thank_you">Thank you!</string>
 </resources>
