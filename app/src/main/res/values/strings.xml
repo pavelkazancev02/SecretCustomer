@@ -13,4 +13,9 @@
     <string name="name">Name</string>
     <string name="rewarding_program">Rewarding Program</string>
     <string name="withdraw_all">Withdraw All</string>
+    <string name="reward_withdrawal">Reward Withdrawal</string>
+    <string name="card_number">Card Number</string>
+    <string name="expiration_date">Expiration Date</string>
+    <string name="withdraw">Withdraw</string>
+    <string name="cancel">Cancel</string>
 </resources>

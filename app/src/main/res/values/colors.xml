@@ -8,5 +8,5 @@
     <color name="status_bar">#D5D5D5</color>
     <color name="white">#FFFFFF</color>
     <color name="dividerColor">#DDDDDD</color>
-
+    <color name="cancelColor">#F44336</color>
 </resources>
