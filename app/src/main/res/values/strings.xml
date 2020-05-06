@@ -9,4 +9,8 @@
     <string name="last_name_hint">Last Name</string>
     <string name="phone_hint">Phone</string>
     <string name="back_to_login">Back to login</string>
+    <string name="profile">Profile</string>
+    <string name="name">Name</string>
+    <string name="rewarding_program">Rewarding Program</string>
+    <string name="withdraw_all">Withdraw All</string>
 </resources>
