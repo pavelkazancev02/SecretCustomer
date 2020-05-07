@@ -22,9 +22,11 @@ class RestClient {
 
     var userImageService: UserImageService
     var feedbackImageService: FeedbackImageService
+    var shopImageService: ShopImageService
 
     init {
         userImageService = retrofit.create(UserImageService::class.java)
         feedbackImageService = retrofit.create(FeedbackImageService::class.java)
+        shopImageService = retrofit.create(ShopImageService::class.java)
     }
 }
