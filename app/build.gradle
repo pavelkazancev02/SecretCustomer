@@ -20,6 +20,11 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'BASE_URL', '\"https://secret-customer.herokuapp.com/\"'
+        }
+
+        debug {
+            buildConfigField 'String', 'BASE_URL', '\"https://secret-customer.herokuapp.com/\"'
         }
     }
 
@@ -35,4 +40,22 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.google.android.material:material:1.0.0'
+
+    //Network
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0' // HTTP Client
+    implementation 'com.google.code.gson:gson:2.8.5' // Json Parser
+
+    // Support for connection parser to retrofit
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+
+    // Retrofit support library which allows to work with Rest API
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+
+    //Image loader
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    implementation 'com.facebook.fresco:fresco:1.9.0'
+    implementation 'com.github.stfalcon:frescoimageviewer:0.5.0'
 }
