@@ -1,6 +1,7 @@
 package com.example.secretcustomer.data
 
 import com.google.gson.annotations.SerializedName
+import io.reactivex.Single
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -9,52 +10,52 @@ interface SecretCustomerApiService {
     @GET("/secretCustomer/actions{id}")
     fun getActions(
         @Query("id") id: Int
-    ) : Call<SecretCustomer>
+    ): Single<SecretCustomer>
 
     @GET("/secretCustomer/session/active")
-    fun getActiveSession() : Call<SecretCustomer>
+    fun getActiveSession(): Call<SecretCustomer>
 
     @GET("/secretCustomer/session/isAvailable/{shopId}")
     fun isAvailable(
         @Query("shopId") shopId: Int
-    ) : Call<SecretCustomer>
+    ): Single<SecretCustomer>
 
     @POST("/secretCustomer/actions")
     fun createAction(
         @Body actionPostData: ActionPostData
-    ) : Call<SecretCustomer>
+    ): Single<SecretCustomer>
 
     @POST("/secretCustomer/session")
     fun startSession(
         @Body shopId: Int
-    ) : Call<SecretCustomer>
+    ): Single<SecretCustomer>
 
     @POST("/secretCustomer/session/end/{sessionId}")
     fun endSession(
         @Body sessionPostData: SessionPostData
-    ) : Call<SecretCustomer>
+    ): Single<SecretCustomer>
 
     @PUT("/secretCustomer/actions")
     fun updateActions(
         @Field("id") id: Int,
         @Field("shopId") shopId: Int,
         @Field("action") action: String
-    ) : Call<SecretCustomer>
+    ): Single<SecretCustomer>
 
     @PUT("/secretCustomer/session/nextStage/{sessionId}")
     fun nextSessionStage(
         @Path("sessionId") sessionId: Int
-    ) : Call<SecretCustomer>
+    ): Single<SecretCustomer>
 
     @DELETE("/secretCustomer/actions/{id}")
     fun deleteAction(
         @Path("id") id: Int
-    ) : Call<SecretCustomer>
+    ): Single<SecretCustomer>
 
     @DELETE("/secretCustomer/actions/all/{shopId}")
     fun deleteAllActions(
         @Path("shopId") shopId: Int
-    ) : Call<SecretCustomer>
+    ): Single<SecretCustomer>
 }
 
 data class ActionPostData(

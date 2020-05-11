@@ -4,8 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Users(
     val result: List<UserDetails>
-    )
-
+)
 
 data class UserDetails(
     @SerializedName("id")

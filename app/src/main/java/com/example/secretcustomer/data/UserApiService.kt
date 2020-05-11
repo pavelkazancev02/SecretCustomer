@@ -1,7 +1,7 @@
 package com.example.secretcustomer.data
 
 import com.google.gson.annotations.SerializedName
-import retrofit2.Call
+import io.reactivex.Single
 import retrofit2.http.*
 
 
@@ -10,7 +10,7 @@ interface UserApiService {
     @GET("/users")
     fun getUsersListById(
         @Query("id") id: Int
-    ): Call<Users>
+    ): Single<Users>
 
     @GET("/users/me")
     fun getUserInfo(
@@ -21,22 +21,22 @@ interface UserApiService {
         @Query("id") id: Int,
         @Query("balance") balance: Float,
         @Query("role") role: String //Should be changed
-    ): Call<UserDetails>
+    ): Single<UserDetails>
 
     @POST("/users/login")
     fun createUser(
         @Body createUserPostData: CreateUserPostData
-    ): Call<Users>
+    ): Single<Users>
 
     @POST("/users/login")
     fun logUser(
         @Body loginPostData: LoginPostData
-    ): Call<Users>
+    ): Single<Users>
 
     @POST("/users/byEmail")
     fun findUserByEmail(
         @Body email: String
-    ): Call<Users>
+    ): Single<Users>
 
     @PUT("/users/{id}")
     fun updateUser(
@@ -47,12 +47,12 @@ interface UserApiService {
         @Field("phone") phone: String,
         @Field("balance") balance: Float,
         @Field("role") role: String // Should be changed to Customer
-    ):Call<Users>
+    ): Single<Users>
 
     @DELETE("/users/{id}")
     fun deleteUser(
         @Path("id") id: Int
-    ):Call<Users>
+    ): Single<Users>
 }
 
 data class LoginPostData(

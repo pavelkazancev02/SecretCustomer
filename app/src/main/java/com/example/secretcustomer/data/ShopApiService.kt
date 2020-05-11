@@ -1,7 +1,7 @@
 package com.example.secretcustomer.data
 
 import com.google.gson.annotations.SerializedName
-import retrofit2.Call
+import io.reactivex.Single
 import retrofit2.http.*
 
 interface ShopApiService {
@@ -10,24 +10,24 @@ interface ShopApiService {
     fun getPaginatedShopList(
         @Query("pageSize") pageSize: Int,
         @Query("offset") offset: Int
-    ): Call<Shop>
+    ): Single<Shop>
 
     @GET("/shops/{id}")
     fun getShopById(
         @Query("id") id: Int
-    ): Call<Shop>
+    ): Single<Shop>
 
     @GET("/shops/owner/{id}")
     fun getShopsByOwnerId(
         @Query("id") id: Int,
         @Query("pageSize") pageSize: Int,
         @Query("offset") offset: Int
-    ): Call<Shop>
+    ): Single<Shop>
 
     @POST("/shops")
     fun createShop(
         @Body shopPostData: ShopPostData
-    ) : Call<Shop>
+    ): Single<Shop>
 
     @PUT("/shops/update")
     fun updateShop(
@@ -35,12 +35,12 @@ interface ShopApiService {
         @Field("ownerId") ownerId: Int,
         @Field("balance") balance: Float,
         @Field("address") address: String
-    ) : Call<Shop>
+    ): Single<Shop>
 
     @DELETE("/shops/{id}")
     fun deleteShop(
         @Path("id") id: Int
-    ) : Call<Shop>
+    ): Single<Shop>
 }
 
 data class ShopPostData(

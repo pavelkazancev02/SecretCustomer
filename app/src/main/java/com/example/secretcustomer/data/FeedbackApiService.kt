@@ -1,7 +1,7 @@
 package com.example.secretcustomer.data
 
 import com.google.gson.annotations.SerializedName
-import retrofit2.Call
+import io.reactivex.Single
 import retrofit2.http.*
 
 interface FeedbackApiService {
@@ -9,31 +9,31 @@ interface FeedbackApiService {
     @GET("/feedback/{id}")
     fun getFeedbackById(
         @Query("id") id: Int
-    ): Call<Feedback>
+    ): Single<Feedback>
 
     @GET("/feedback/shop/{id}")
     fun getPaginatedFeedbackByShopId(
         @Query("id") id: Int,
         @Query("pageSize") pageSize: Int,
         @Query("offset") offset: Int
-    ): Call<Feedback>
+    ): Single<Feedback>
 
     @GET("/feedback/customer/{id}")
     fun getPaginatedFeedbackByCustomerId(
         @Query("id") id: Int,
         @Query("pageSize") pageSize: Int,
         @Query("offset") offset: Int
-    ): Call<Feedback>
+    ): Single<Feedback>
 
     @POST("/feedback")
     fun leaveFeedback(
         @Body feedbackPostData: FeedbackPostData
-    ) : Call<Feedback>
+    ): Single<Feedback>
 
     @DELETE("/feedback/{id}")
     fun deleteFeedback(
         @Path("id") id: Int
-    ) : Call<Feedback>
+    ): Single<Feedback>
 }
 
 data class FeedbackPostData(

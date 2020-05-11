@@ -3,7 +3,7 @@ package com.example.secretcustomer.data
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
-data class Feedback (
+data class Feedback(
     @SerializedName("id")
     val id: Int,
     @SerializedName("shopName")
