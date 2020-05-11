@@ -15,7 +15,7 @@ data class Feedback (
     @SerializedName("cons")
     val cons: String,
     @SerializedName("additionalInfo")
-    val additionalInfo: String,
+    val additionalInfo: String?,
     @SerializedName("date")
     val date: Date
 )

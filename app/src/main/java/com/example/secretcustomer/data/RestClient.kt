@@ -20,13 +20,17 @@ class RestClient {
         addConverterFactory(GsonConverterFactory.create())
     }.build()
 
-    var userImageService: UserImageService
-    var feedbackImageService: FeedbackImageService
-    var shopImageService: ShopImageService
+    var userApiService: UserApiService
+    var feedbackApiService: FeedbackApiService
+    var shopApiService: ShopApiService
+    var secretCustomerApiService: SecretCustomerApiService
+    var transactionApiService: TransactionApiService
 
     init {
-        userImageService = retrofit.create(UserImageService::class.java)
-        feedbackImageService = retrofit.create(FeedbackImageService::class.java)
-        shopImageService = retrofit.create(ShopImageService::class.java)
+        userApiService = retrofit.create(UserApiService::class.java)
+        feedbackApiService = retrofit.create(FeedbackApiService::class.java)
+        shopApiService = retrofit.create(ShopApiService::class.java)
+        secretCustomerApiService = retrofit.create(SecretCustomerApiService::class.java)
+        transactionApiService = retrofit.create((TransactionApiService::class.java))
     }
 }
