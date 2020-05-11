@@ -14,12 +14,12 @@ interface ShopApiService {
 
     @GET("/shops/{id}")
     fun getShopById(
-        @Query("id") id: Int
+        @Path("id") id: Int
     ): Single<Shop>
 
     @GET("/shops/owner/{id}")
     fun getShopsByOwnerId(
-        @Query("id") id: Int,
+        @Path("id") id: Int,
         @Query("pageSize") pageSize: Int,
         @Query("offset") offset: Int
     ): Single<Shop>
@@ -31,6 +31,7 @@ interface ShopApiService {
 
     @PUT("/shops/update")
     fun updateShop(
+        @Field("id") id: String,
         @Field("name") name: String,
         @Field("ownerId") ownerId: Int,
         @Field("balance") balance: Float,

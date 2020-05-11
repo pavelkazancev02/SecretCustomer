@@ -15,10 +15,8 @@ data class UserDetails(
     val lastName: String,
     @SerializedName("email")
     val email: String,
-    @SerializedName("password")
-    val password: String,
     @SerializedName("phone")
-    val phone: String,
+    val phone: String?,
     @SerializedName("balance")
     val balance: Float,
     @SerializedName("role")

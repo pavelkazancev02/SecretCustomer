@@ -8,10 +8,10 @@ interface TransactionApiService {
     @POST("/balance/user/increase")
     fun increaseUserBalance(
         @Body userBalancePostData: Transaction
-    ): Call<Transaction>
+    ): Call<UserDetails>
 
     @POST("/balance/user/increase")
     fun increaseShopBalance(
         @Body userBalancePostData: Transaction
-    ): Call<Transaction>
+    ): Call<Shop>
 }

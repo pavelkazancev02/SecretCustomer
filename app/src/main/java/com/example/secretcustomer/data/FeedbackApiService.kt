@@ -8,19 +8,19 @@ interface FeedbackApiService {
 
     @GET("/feedback/{id}")
     fun getFeedbackById(
-        @Query("id") id: Int
+        @Path("id") id: Int
     ): Single<Feedback>
 
     @GET("/feedback/shop/{id}")
     fun getPaginatedFeedbackByShopId(
-        @Query("id") id: Int,
+        @Path("id") id: Int,
         @Query("pageSize") pageSize: Int,
         @Query("offset") offset: Int
     ): Single<Feedback>
 
     @GET("/feedback/customer/{id}")
     fun getPaginatedFeedbackByCustomerId(
-        @Query("id") id: Int,
+        @Path("id") id: Int,
         @Query("pageSize") pageSize: Int,
         @Query("offset") offset: Int
     ): Single<Feedback>
@@ -28,12 +28,12 @@ interface FeedbackApiService {
     @POST("/feedback")
     fun leaveFeedback(
         @Body feedbackPostData: FeedbackPostData
-    ): Single<Feedback>
+    )
 
     @DELETE("/feedback/{id}")
     fun deleteFeedback(
         @Path("id") id: Int
-    ): Single<Feedback>
+    )
 }
 
 data class FeedbackPostData(
