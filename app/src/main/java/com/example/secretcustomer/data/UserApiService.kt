@@ -8,30 +8,24 @@ import retrofit2.http.*
 interface UserApiService {
 
     @GET("/users")
-    fun getUsersListById(
-        @Query("id") id: Int
+    fun getPaginatedUsersList(
+        @Query("pageSize") pageSize: Int,
+        @Query("offset") offset: Int
     ): Single<Users>
 
     @GET("/users/me")
-    fun getUserInfo(
-        @Query("firstName") firstName: String,
-        @Query("lastName") lastName: String,
-        @Query("email") email: String,
-        @Query("phone") phone: String,
-        @Query("id") id: Int,
-        @Query("balance") balance: Float,
-        @Query("role") role: String //Should be changed
-    ): Single<UserDetails>
+    fun getUserInfo(): Single<UserDetails>
 
-    @POST("/users/login")
+    @POST("/users")
     fun createUser(
         @Body createUserPostData: CreateUserPostData
-    ): Single<Users>
+    )
 
+    @Headers("Authorization")
     @POST("/users/login")
     fun logUser(
         @Body loginPostData: LoginPostData
-    ): Single<Users>
+    )
 
     @POST("/users/byEmail")
     fun findUserByEmail(
@@ -52,7 +46,7 @@ interface UserApiService {
     @DELETE("/users/{id}")
     fun deleteUser(
         @Path("id") id: Int
-    ): Single<Users>
+    )
 }
 
 data class LoginPostData(

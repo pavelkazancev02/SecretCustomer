@@ -9,65 +9,63 @@ interface SecretCustomerApiService {
 
     @GET("/secretCustomer/actions{id}")
     fun getActions(
-        @Query("id") id: Int
-    ): Single<SecretCustomer>
+        @Path("id") id: Int
+    ): Single<Action>
 
     @GET("/secretCustomer/session/active")
-    fun getActiveSession(): Call<SecretCustomer>
+    fun getActiveSession(): Call<Session>
 
     @GET("/secretCustomer/session/isAvailable/{shopId}")
     fun isAvailable(
-        @Query("shopId") shopId: Int
-    ): Single<SecretCustomer>
+        @Path("shopId") shopId: Int
+    ): Single<Availability>
 
     @POST("/secretCustomer/actions")
     fun createAction(
-        @Body actionPostData: ActionPostData
-    ): Single<SecretCustomer>
+        @Body actionPostData: Action
+    )
 
     @POST("/secretCustomer/session")
     fun startSession(
         @Body shopId: Int
-    ): Single<SecretCustomer>
+    ): Single<Session>
 
     @POST("/secretCustomer/session/end/{sessionId}")
     fun endSession(
         @Body sessionPostData: SessionPostData
-    ): Single<SecretCustomer>
+    )
 
     @PUT("/secretCustomer/actions")
     fun updateActions(
         @Field("id") id: Int,
         @Field("shopId") shopId: Int,
         @Field("action") action: String
-    ): Single<SecretCustomer>
+    ): Single<Action>
 
     @PUT("/secretCustomer/session/nextStage/{sessionId}")
     fun nextSessionStage(
         @Path("sessionId") sessionId: Int
-    ): Single<SecretCustomer>
+    )
 
     @DELETE("/secretCustomer/actions/{id}")
     fun deleteAction(
         @Path("id") id: Int
-    ): Single<SecretCustomer>
+    )
 
     @DELETE("/secretCustomer/actions/all/{shopId}")
     fun deleteAllActions(
         @Path("shopId") shopId: Int
-    ): Single<SecretCustomer>
+    )
 }
 
-data class ActionPostData(
-    @SerializedName("id") val id: Int,
-    @SerializedName("shopId") val shopId: Int,
-    @SerializedName("action") val action: String
-)
 
 data class SessionPostData(
-    @SerializedName("sessionId") val sessionId: Int,
     @SerializedName("shopId") val shopId: Int,
     @SerializedName("pros") val pros: String,
     @SerializedName("cons") val cons: String,
     @SerializedName("additionalInfo") val additionalInfo: String?
+)
+
+data class Availability(
+    val available: Boolean
 )
