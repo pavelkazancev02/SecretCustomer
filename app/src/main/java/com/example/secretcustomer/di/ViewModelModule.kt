@@ -2,9 +2,12 @@ package com.example.secretcustomer.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.secretcustomer.domain.LoginViewModel
+import com.example.secretcustomer.domain.SignUpViewModel
 import dagger.Binds
 import dagger.MapKey
 import dagger.Module
+import dagger.multibindings.IntoMap
 import javax.inject.Inject
 import javax.inject.Provider
 import kotlin.reflect.KClass
@@ -15,10 +18,15 @@ abstract class ViewModelModule {
     @Binds
     internal abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
 
-    /*@Binds
+    @Binds
     @IntoMap
-    @ViewModelKey(PetsSearchViewModel::class)
-    internal abstract fun bindPetSearchViewModel(viewModel: PetsSearchViewModel): ViewModel*/
+    @ViewModelKey(LoginViewModel::class)
+    internal abstract fun bindLoginViewModel(viewModel: LoginViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SignUpViewModel::class)
+    internal abstract fun bindSignUpViewModel(viewModel: SignUpViewModel): ViewModel
 }
 
 class ViewModelFactory @Inject constructor(private val viewModels: MutableMap<Class<out ViewModel>, Provider<ViewModel>>) :

@@ -1,7 +1,7 @@
 package com.example.secretcustomer.di
 
 import android.content.Context
-import com.kn.petFinder.util.sharedpreferences.SharedPreferencesWrapper
+import com.example.secretcustomer.util.sharedpreferences.SharedPreferencesWrapper
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named

@@ -4,6 +4,10 @@
         "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/layout/activity_shops_inspection.xml"
     },
     {
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/layout_fragment_register.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/layout/fragment_register.xml"
+    },
+    {
         "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
     },
@@ -68,6 +72,10 @@
         "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/layout/fragment_shops.xml"
     },
     {
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/navigation_nav_graph_login.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/navigation/nav_graph_login.xml"
+    },
+    {
         "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/font_raleway.xml.flat",
         "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/font/raleway.xml"
     },
@@ -84,6 +92,10 @@
         "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/layout/activity_profile_withdraw_finish.xml"
     },
     {
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/layout_fragment_login.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/layout/fragment_login.xml"
+    },
+    {
         "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/drawable_feedback_24dp.xml.flat",
         "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/drawable/feedback_24dp.xml"
     },
@@ -98,10 +110,6 @@
     {
         "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/drawable_smile_270dp.xml.flat",
         "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/drawable/smile_270dp.xml"
-    },
-    {
-        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/layout_activity_register.xml.flat",
-        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/layout/activity_register.xml"
     },
     {
         "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/font_raleway_light.xml.flat",

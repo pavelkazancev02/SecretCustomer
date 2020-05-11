@@ -1,4 +1,4 @@
-package com.kn.petFinder.util.sharedpreferences
+package com.example.secretcustomer.util.sharedpreferences
 
 import android.content.Context
 import android.content.SharedPreferences

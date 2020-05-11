@@ -1,7 +1,7 @@
 package com.example.secretcustomer.di
 
 import android.content.Context
-import com.kn.petFinder.Application
+import com.example.secretcustomer.SecretCustomerApplication
 import dagger.Module
 import dagger.Provides
 
@@ -9,9 +9,9 @@ import dagger.Provides
 class ApplicationModule {
 
     @Provides
-    fun provideApplication() = Application.APPLICATION
+    fun provideApplication() = SecretCustomerApplication.APPLICATION
 
     @Provides
-    fun provideContext(): Context = Application.APPLICATION
+    fun provideContext(): Context = SecretCustomerApplication.APPLICATION
 
 }
