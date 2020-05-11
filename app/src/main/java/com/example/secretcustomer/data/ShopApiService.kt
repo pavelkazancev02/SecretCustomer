@@ -8,17 +8,20 @@ interface ShopApiService {
 
     @GET("/shops")
     fun getPaginatedShopList(
+        @Header("Authorization") auth: String,
         @Query("pageSize") pageSize: Int,
         @Query("offset") offset: Int
     ): Single<Shop>
 
     @GET("/shops/{id}")
     fun getShopById(
+        @Header("Authorization") auth: String,
         @Path("id") id: Int
     ): Single<Shop>
 
     @GET("/shops/owner/{id}")
     fun getShopsByOwnerId(
+        @Header("Authorization") auth: String,
         @Path("id") id: Int,
         @Query("pageSize") pageSize: Int,
         @Query("offset") offset: Int
@@ -26,11 +29,13 @@ interface ShopApiService {
 
     @POST("/shops")
     fun createShop(
+        @Header("Authorization") auth: String,
         @Body shopPostData: ShopPostData
     ): Single<Shop>
 
     @PUT("/shops/update")
     fun updateShop(
+        @Header("Authorization") auth: String,
         @Field("id") id: String,
         @Field("name") name: String,
         @Field("ownerId") ownerId: Int,
@@ -40,6 +45,7 @@ interface ShopApiService {
 
     @DELETE("/shops/{id}")
     fun deleteShop(
+        @Header("Authorization") auth: String,
         @Path("id") id: Int
     ): Single<Shop>
 }
