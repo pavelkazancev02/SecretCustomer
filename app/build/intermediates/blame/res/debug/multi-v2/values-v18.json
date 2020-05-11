@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v18\\values-v18.xml",
+            "outputFile": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v18/values-v18.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Stud2\\.gradle\\caches\\transforms-2\\files-2.1\\07d91a6f02149585995d851c56f12844\\appcompat-1.1.0\\res\\values-v18\\values-v18.xml",
+                    "source": "/home/kn/.gradle/caches/transforms-2/files-2.1/ae1bd2b2df84eb08a2c1a18bb0c1339d/appcompat-1.1.0/res/values-v18/values-v18.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

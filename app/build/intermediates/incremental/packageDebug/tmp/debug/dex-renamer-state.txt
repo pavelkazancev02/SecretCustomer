@@ -1,7 +1,10 @@
-#Thu May 07 20:32:45 MSK 2020
-base.0=C\:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
+#Mon May 11 17:28:34 MSK 2020
+path.2=classes2.dex
 path.1=classes.dex
-renamed.1=classes2.dex
 path.0=classes.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
 renamed.0=classes.dex
-base.1=C\:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
+base.2=/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/dex/debug/mergeExtDexDebug/out/classes2.dex
+base.1=/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/dex/debug/mergeProjectDexDebug/out/classes.dex
+base.0=/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/dex/debug/mergeExtDexDebug/out/classes.dex

@@ -1,166 +1,166 @@
 [
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/layout_activity_shops_inspection.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/layout/activity_shops_inspection.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\drawable_smile_270dp.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\drawable\\smile_270dp.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/mipmap-hdpi/ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/drawable-v24/ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\drawable_mood1_75dp.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\drawable\\mood1_75dp.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/drawable_smile_200dp.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/drawable/smile_200dp.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\menu_bottom_navigation.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\menu\\bottom_navigation.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/drawable_qr_24dp.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/drawable/qr_24dp.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\drawable_qr_24dp.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\drawable\\qr_24dp.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/drawable_shop_icon_75dp.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/drawable/shop_icon_75dp.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\font_raleway_light.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\font\\raleway_light.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/drawable_mood2_75dp.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/drawable/mood2_75dp.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\drawable_exit_24dp.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\drawable\\exit_24dp.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/layout_activity_shops_finish.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/layout/activity_shops_finish.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/drawable_shops_24dp.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/drawable/shops_24dp.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_my_feedback.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\layout\\fragment_my_feedback.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_register.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\layout\\activity_register.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/drawable_mood1_75dp.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/drawable/mood1_75dp.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_shops.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\layout\\fragment_shops.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/menu_bottom_navigation.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/menu/bottom_navigation.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/layout_activity_login.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/layout/activity_login.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\drawable_mood4_75dp.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\drawable\\mood4_75dp.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_shops_inspection.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\layout\\activity_shops_inspection.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/layout_fragment_shops.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/layout/fragment_shops.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/font_raleway.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/font/raleway.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\layout\\activity_main.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/drawable_mood3_75dp.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/drawable/mood3_75dp.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\drawable_profile_24dp.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\drawable\\profile_24dp.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/layout_activity_profile_withdraw_finish.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/layout/activity_profile_withdraw_finish.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\font_raleway.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\font\\raleway.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/drawable_feedback_24dp.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/drawable/feedback_24dp.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\drawable_feedback_24dp.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\drawable\\feedback_24dp.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/drawable_exit_24dp.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/drawable/exit_24dp.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/drawable_shop_icon_90dp.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/drawable/shop_icon_90dp.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_profile_withdraw.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\layout\\activity_profile_withdraw.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/drawable_smile_270dp.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/drawable/smile_270dp.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/layout_activity_register.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/layout/activity_register.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\drawable_shop_icon_75dp.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\drawable\\shop_icon_75dp.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/font_raleway_light.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/font/raleway_light.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\drawable_mood3_75dp.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\drawable\\mood3_75dp.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/layout_activity_main.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/layout/activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_profile.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\layout\\fragment_profile.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_profile_withdraw_finish.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\layout\\activity_profile_withdraw_finish.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\drawable_mood2_75dp.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\drawable\\mood2_75dp.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/mipmap-mdpi/ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/drawable_mood4_75dp.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/drawable/mood4_75dp.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\layout\\activity_login.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/layout_activity_shops_feedback.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/layout/activity_shops_feedback.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\drawable_shop_icon_90dp.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\drawable\\shop_icon_90dp.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/drawable_profile_24dp.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/drawable/profile_24dp.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_shops_finish.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\layout\\activity_shops_finish.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_shops_feedback.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\layout\\activity_shops_feedback.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/drawable/ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\drawable_shops_24dp.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\drawable\\shops_24dp.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/layout_activity_profile_withdraw.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/layout/activity_profile_withdraw.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\drawable_smile_200dp.xml.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\drawable\\smile_200dp.xml"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/layout_fragment_my_feedback.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/layout/fragment_my_feedback.xml"
     },
     {
-        "merged": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\Stud2\\Downloads\\android\\secret-customer-android-app-pavelkazancev\\secret-customer-android-app-pavelkazancev\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+        "merged": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/build/intermediates/res/merged/debug/layout_fragment_profile.xml.flat",
+        "source": "/home/kn/AndroidStudioProjects/secret-customer-android-app/app/src/main/res/layout/fragment_profile.xml"
     }
 ]
