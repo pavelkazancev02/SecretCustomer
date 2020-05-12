@@ -28,7 +28,6 @@ interface UserApiService {
 
     @POST("/users/login")
     fun logUser(
-        @Header("Authorization") auth: String,
         @Body loginPostData: LoginPostData
     ): Single<Headers>
 
