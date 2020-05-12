@@ -12,7 +12,7 @@ interface UserApiService {
         @Header("Authorization") auth: String,
         @Query("pageSize") pageSize: Int,
         @Query("offset") offset: Int
-    ): Single<Users>
+    ): Single<List<UserDetails>>
 
     @GET("/users/me")
     fun getUserInfo(
