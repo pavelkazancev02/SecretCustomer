@@ -42,4 +42,5 @@
     <string name="incorrect_phone_pattern">Enter valid phone number</string>
     <string name="wrong_login_data">Incorrect email or password</string>
     <string name="server_not_responding">Server is down</string>
+    <string name="successful_registration">User is successfully registered</string>
 </resources>
