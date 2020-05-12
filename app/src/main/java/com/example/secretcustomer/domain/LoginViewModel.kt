@@ -9,17 +9,24 @@ import com.example.secretcustomer.R
 import com.example.secretcustomer.data.LoginPostData
 import com.example.secretcustomer.data.UserApiService
 import com.example.secretcustomer.ui.fragments.LoginFragmentDirections
-import com.example.secretcustomer.util.textWatchers.LiveDataTextWatcher
 import com.example.secretcustomer.util.Event
 import com.example.secretcustomer.util.NavigationCommand
+import com.example.secretcustomer.util.constants.LoginConstants
+import com.example.secretcustomer.util.sharedpreferences.SharedPreferencesWrapper
+import com.example.secretcustomer.util.textWatchers.LiveDataTextWatcher
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
+import javax.inject.Named
 
 // Инжектим даггером наш сервис, смотреть папку di: RestServiceModule, ViewModelModule
 class LoginViewModel
-@Inject constructor(val userApiService: UserApiService) : ViewModel() {
+@Inject constructor(
+    val userApiService: UserApiService,
+    @Named("secure") val secureSharedPrefs: SharedPreferencesWrapper
+) : ViewModel() {
 
     // Эти LiveData биндятся напрямую в файлы разметки (layout/fragment_login.xml)
     // LiveData хранящие инпут поля и TextWatcher для них, который обновляет данные в LiveData,
@@ -37,9 +44,13 @@ class LoginViewModel
     // только один раз при его изменении. Иначе при повороте экрана у нас все время будут писаться ошибки
     private val _errorId = MutableLiveData<Event<Int>>()
     val error: LiveData<Event<Int>> get() = _errorId
+
     // LiveData для управления навигацией, так как она может совершаться только из ui.
     private val _navigationEvents = MutableLiveData<Event<NavigationCommand>>()
     val navigationEvent: LiveData<Event<NavigationCommand>> get() = _navigationEvents
+
+    private val _showLoadingBar = MutableLiveData<Event<Boolean>>()
+    val showLoadingBar: LiveData<Event<Boolean>> get() = _showLoadingBar
 
     private val disposables = CompositeDisposable()
 
@@ -68,19 +79,31 @@ class LoginViewModel
     }
 
     private fun loginUser() {
+        _showLoadingBar.value = Event(true)
         val userData = LoginPostData(_email.value!!, password.value!!)
         disposables.add(userApiService.logUser(userData)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                { users ->
-                    //TODO сделать как будет норм апи
-                },
-                { error ->
-                    // В асинхронищине в LiveData нужно постить значение, а не просто сетить, так как
-                    // на другом треде
-                    Log.e("Login error", error.message)
-                    _errorId.postValue(Event(R.string.wrong_login_data))
+            .subscribeBy(
+                {},
+                { response ->
+                    if (response.isSuccessful) {
+                        val token = response.headers().get(LoginConstants.TOKEN_HEADER)
+                        secureSharedPrefs.set(LoginConstants.TOKEN, token!!)
+                        _showLoadingBar.postValue(Event(false))
+                        // TODO перейти на главную активити
+                        //_navigationEvents.postValue(NavigationCommand.ToIntent())
+                    } else {
+                        // В асинхронищине в LiveData нужно постить значение, а не просто сетить, так как
+                        // на другом треде
+                        _showLoadingBar.postValue(Event(false))
+                        Log.e("Login error", response.message())
+                        when (response.code()) {
+                            409 -> _errorId.postValue(Event(R.string.wrong_login_data))
+                            else -> _errorId.postValue(Event(R.string.server_not_responding))
+                        }
+                        _password.postValue("")
+                    }
                 }
             )
         )

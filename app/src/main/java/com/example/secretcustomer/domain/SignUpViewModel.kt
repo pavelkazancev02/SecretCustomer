@@ -9,12 +9,13 @@ import androidx.lifecycle.ViewModel
 import com.example.secretcustomer.R
 import com.example.secretcustomer.data.CreateUserPostData
 import com.example.secretcustomer.data.UserApiService
-import com.example.secretcustomer.util.constants.LoginConstants
-import com.example.secretcustomer.util.textWatchers.LiveDataTextWatcher
 import com.example.secretcustomer.util.Event
 import com.example.secretcustomer.util.NavigationCommand
+import com.example.secretcustomer.util.constants.LoginConstants
+import com.example.secretcustomer.util.textWatchers.LiveDataTextWatcher
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 import retrofit2.HttpException
 import java.net.HttpURLConnection
@@ -42,6 +43,10 @@ class SignUpViewModel
     val error: LiveData<Event<Int>> get() = _errorId
     private val _navigationEvents = MutableLiveData<Event<NavigationCommand>>()
     val navigationEvent: LiveData<Event<NavigationCommand>> get() = _navigationEvents
+
+    private val _showLoadingBar = MutableLiveData<Event<Boolean>>()
+    val showLoadingBar: LiveData<Event<Boolean>> get() = _showLoadingBar
+
 
     private val disposables = CompositeDisposable()
 
@@ -76,6 +81,7 @@ class SignUpViewModel
     }
 
     private fun registerUser() {
+        _showLoadingBar.value = Event(true)
         val userData = CreateUserPostData(
             _firstName.value!!,
             lastName.value!!,
@@ -87,20 +93,23 @@ class SignUpViewModel
         disposables.add(userApiService.createUser(userData)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                { users ->
-                    //TODO сделать как будет норм апи
-                },
+            .subscribeBy(
                 { error ->
+                    _showLoadingBar.postValue(Event(false))
                     Log.e("Login error", error.message)
-                    when(error) {
+                    when (error) {
                         is HttpException ->
                             if (error.code() == HttpURLConnection.HTTP_CONFLICT) {
                                 _errorId.postValue(Event(R.string.user_already_exists_error))
-                            } else if (error.code() == HttpURLConnection.HTTP_NOT_FOUND) {
-                                _errorId.postValue(Event(R.string.server_not_responding))
                             }
+                        else -> _errorId.postValue(Event(R.string.server_not_responding))
                     }
+                    _password.postValue("")
+                },
+                {
+                    _showLoadingBar.postValue(Event(false))
+                    _errorId.postValue(Event(R.string.successful_registration))
+                    _navigationEvents.postValue(Event(NavigationCommand.Back))
                 }
             )
         )
