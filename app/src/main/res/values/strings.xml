@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">Secret Customer</string>
+    <string name="login_label">Login</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="create_account">Create Account</string>
+    <string name="registration">Registration</string>
+    <string name="first_name_hint">First Name</string>
+    <string name="last_name_hint">Last Name</string>
+    <string name="phone_hint">Phone</string>
+    <string name="back_to_login">Back to login</string>
+    <string name="profile">Profile</string>
+    <string name="name">Name</string>
+    <string name="rewarding_program">Rewarding Program</string>
+    <string name="withdraw_all">Withdraw All</string>
+    <string name="reward_withdrawal">Reward Withdrawal</string>
+    <string name="card_number">Card Number</string>
+    <string name="expiration_date">Expiration Date</string>
+    <string name="withdraw">Withdraw</string>
+    <string name="cancel">Cancel</string>
+    <string name="finish">Finish</string>
+    <string name="withdraw_finish_message">Money is on the way!</string>
+    <string name="back_to_profile">Back to profile</string>
+    <string name="back_to_shops">Back to shops list</string>
+    <string name="shops_finish_message">You help to make our shop better</string>
+    <string name="shops_finish_thank_you">Thank you!</string>
+    <string name="leave_feedback">Leave Feedback</string>
+    <string name="feedback_hint">Feedback</string>
+    <string name="save">Save</string>
+    <string name="next">Next</string>
+    <string name="goback">Go Back</string>
+    <string name="report_hint">Report</string>
+    <string name="my_feedback">My Feedback</string>
+    <string name="shops">Shops</string>
+    <string name="inspect">Inspect   </string>
 </resources>

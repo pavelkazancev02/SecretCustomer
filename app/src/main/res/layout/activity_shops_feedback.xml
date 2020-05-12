@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/shops_feedback_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="@string/leave_feedback"
+        android:textColor="@color/black1"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/divider1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/dividerColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shops_feedback_title" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/dividerColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shops_feedback_shop_logo" />
+
+    <TextView
+        android:id="@+id/shops_feedback_shop_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Пятерочка"
+        android:textColor="@color/black1"
+        android:textSize="26dp"
+        app:layout_constraintStart_toStartOf="@+id/shops_feedback_title"
+        app:layout_constraintTop_toBottomOf="@+id/divider1" />
+
+    <TextView
+        android:id="@+id/shops_feedback_shop_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Иннополис, ул. Спортивная, д. 126"
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="@+id/shops_feedback_title"
+        app:layout_constraintTop_toBottomOf="@+id/shops_feedback_shop_name" />
+
+    <ImageView
+        android:id="@+id/shops_feedback_shop_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/divider1"
+        app:layout_constraintTop_toBottomOf="@+id/divider1"
+        app:srcCompat="@drawable/shop_icon_75dp" />
+
+    <ImageButton
+        android:id="@+id/shops_feedback_mood4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/shops_feedback_mood3"
+        app:layout_constraintTop_toTopOf="@+id/shops_feedback_mood1"
+        app:srcCompat="@drawable/mood4_75dp" />
+
+    <ImageButton
+        android:id="@+id/shops_feedback_mood3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toStartOf="@+id/shops_feedback_mood4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/shops_feedback_mood2"
+        app:layout_constraintTop_toTopOf="@+id/shops_feedback_mood1"
+        app:srcCompat="@drawable/mood3_75dp" />
+
+    <ImageButton
+        android:id="@+id/shops_feedback_mood2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toStartOf="@+id/shops_feedback_mood3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/shops_feedback_mood1"
+        app:layout_constraintTop_toTopOf="@+id/shops_feedback_mood1"
+        app:srcCompat="@drawable/mood2_75dp" />
+
+    <ImageButton
+        android:id="@+id/shops_feedback_mood1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toStartOf="@+id/shops_feedback_mood2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider2"
+        app:srcCompat="@drawable/mood1_75dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/shops_feedback_text_field"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        app:boxStrokeColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shops_feedback_mood1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/shops_feedback_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="150dp"
+            android:hint="@string/feedback_hint"
+            android:inputType="textMultiLine" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/shops_feedback_save_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="@string/save"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+
+        android:theme="@style/Theme.MaterialComponents"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shops_feedback_text_field" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/shops_feedback_cancel_btn"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:background="@android:color/transparent"
+        android:text="@string/cancel"
+        android:textColor="@color/cancelColor"
+        android:textSize="16dp"
+
+        android:theme="@style/Theme.MaterialComponents"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shops_feedback_save_btn"
+        app:strokeColor="@color/colorPrimary"
+        app:strokeWidth="1dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
