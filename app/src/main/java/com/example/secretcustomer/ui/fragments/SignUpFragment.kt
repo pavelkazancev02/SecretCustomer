@@ -4,15 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.addCallback
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.secretcustomer.SecretCustomerApplication
 import com.example.secretcustomer.R
+import com.example.secretcustomer.SecretCustomerApplication
 import com.example.secretcustomer.databinding.FragmentRegisterBinding
 import com.example.secretcustomer.di.ViewModelFactory
 import com.example.secretcustomer.domain.SignUpViewModel
@@ -41,7 +41,9 @@ class SignUpFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        (requireActivity().application as SecretCustomerApplication).appComponent.injectSignUpFragment(this)
+        (requireActivity().application as SecretCustomerApplication).appComponent.injectSignUpFragment(
+            this
+        )
         viewModel = ViewModelProvider(this, viewModelFactory).get(SignUpViewModel::class.java)
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_register, container, false)
@@ -69,6 +71,18 @@ class SignUpFragment : Fragment() {
                         findNavController().navigateUp()
                     is NavigationCommand.To ->
                         findNavController().navigate(navigationCommand.directions)
+                    is NavigationCommand.ToIntent -> {
+                    }
+                }
+            }
+        })
+
+        viewModel.showLoadingBar.observe(viewLifecycleOwner, Observer { showEvent ->
+            showEvent.getContentIfNotHandled()?.let { show ->
+                if (show) {
+                    binding.loadingBar.visibility = View.VISIBLE
+                } else {
+                    binding.loadingBar.visibility = View.GONE
                 }
             }
         })

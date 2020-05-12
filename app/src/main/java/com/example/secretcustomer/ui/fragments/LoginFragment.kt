@@ -10,8 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.secretcustomer.SecretCustomerApplication
 import com.example.secretcustomer.R
+import com.example.secretcustomer.SecretCustomerApplication
 import com.example.secretcustomer.databinding.FragmentLoginBinding
 import com.example.secretcustomer.di.ViewModelFactory
 import com.example.secretcustomer.domain.LoginViewModel
@@ -67,6 +67,18 @@ class LoginFragment: Fragment() {
                         findNavController().navigateUp()
                     is NavigationCommand.To ->
                         findNavController().navigate(navigationCommand.directions)
+                    is NavigationCommand.ToIntent ->
+                        startActivity(navigationCommand.intent)
+                }
+            }
+        })
+
+        viewModel.showLoadingBar.observe(viewLifecycleOwner, Observer { showEvent ->
+            showEvent.getContentIfNotHandled()?.let { show ->
+                if (show) {
+                    binding.loadingBar.visibility = View.VISIBLE
+                } else {
+                    binding.loadingBar.visibility = View.GONE
                 }
             }
         })
