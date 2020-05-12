@@ -30,7 +30,7 @@ interface UserApiService {
     fun logUser(
         @Header("Authorization") auth: String,
         @Body loginPostData: LoginPostData
-    ): Single<Unit>
+    ): Single<Headers>
 
     @POST("/users/byEmail")
     fun findUserByEmail(
