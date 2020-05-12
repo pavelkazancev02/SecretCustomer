@@ -2,6 +2,7 @@ package com.example.secretcustomer.data
 
 import com.google.gson.annotations.SerializedName
 import io.reactivex.Single
+import retrofit2.Response
 import retrofit2.http.*
 
 
@@ -21,7 +22,6 @@ interface UserApiService {
 
     @POST("/users")
     fun createUser(
-        @Header("Authorization") auth: String,
         @Body createUserPostData: CreateUserPostData
     ): Single<Unit>
 
@@ -29,7 +29,7 @@ interface UserApiService {
     @POST("/users/login")
     fun logUser(
         @Body loginPostData: LoginPostData
-    ): Single<Headers>
+    ): Single<Response<Unit>>
 
     @POST("/users/byEmail")
     fun findUserByEmail(

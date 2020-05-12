@@ -1258,6 +1258,7 @@ id line1
 id line3
 id listMode
 id list_item
+id loading_bar
 id loginFragment
 id login_app_name
 id login_create_btn
@@ -1638,6 +1639,7 @@ string shops
 string shops_finish_message
 string shops_finish_thank_you
 string status_bar_notification_info_overflow
+string successful_registration
 string user_already_exists_error
 string withdraw
 string withdraw_all
