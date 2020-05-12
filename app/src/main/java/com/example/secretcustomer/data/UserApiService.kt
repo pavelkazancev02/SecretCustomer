@@ -9,31 +9,37 @@ interface UserApiService {
 
     @GET("/users")
     fun getPaginatedUsersList(
+        @Header("Authorization") auth: String,
         @Query("pageSize") pageSize: Int,
         @Query("offset") offset: Int
-    ): Single<Users>
+    ): Single<List<UserDetails>>
 
     @GET("/users/me")
-    fun getUserInfo(): Single<UserDetails>
+    fun getUserInfo(
+        @Header("Authorization") auth: String
+    ): Single<UserDetails>
 
     @POST("/users")
     fun createUser(
+        @Header("Authorization") auth: String,
         @Body createUserPostData: CreateUserPostData
-    )
+    ): Single<Unit>
 
-    @Headers("Authorization")
+
     @POST("/users/login")
     fun logUser(
         @Body loginPostData: LoginPostData
-    )
+    ): Single<Headers>
 
     @POST("/users/byEmail")
     fun findUserByEmail(
+        @Header("Authorization") auth: String,
         @Body email: String
-    ): Single<Users>
+    ): Single<UserDetails>
 
     @PUT("/users/{id}")
     fun updateUser(
+        @Header("Authorization") auth: String,
         @Path("id") id: Int,
         @Field("firstName") firstName: String,
         @Field("lastName") lastName: String,
@@ -41,12 +47,13 @@ interface UserApiService {
         @Field("phone") phone: String,
         @Field("balance") balance: Float,
         @Field("role") role: String // Should be changed to Customer
-    ): Single<Users>
+    ): Single<UserDetails>
 
     @DELETE("/users/{id}")
     fun deleteUser(
+        @Header("Authorization") auth: String,
         @Path("id") id: Int
-    )
+    ): Single<Unit>
 }
 
 data class LoginPostData(
