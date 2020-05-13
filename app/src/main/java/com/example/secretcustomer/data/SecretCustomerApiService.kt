@@ -32,7 +32,7 @@ interface SecretCustomerApiService {
     @POST("/secretCustomer/session")
     fun startSession(
         @Header("Authorization") auth: String,
-        @Body shopId: Int
+        @Body sessionStartData: SessionStartData
     ): Single<Session>
 
     @POST("/secretCustomer/session/end/{sessionId}")
@@ -69,6 +69,9 @@ interface SecretCustomerApiService {
     ): Single<Unit>
 }
 
+data class SessionStartData(
+    @SerializedName("shopId") val shopId: Int
+)
 
 data class SessionPostData(
     @SerializedName("shopId") val shopId: Int,

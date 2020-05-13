@@ -81,11 +81,11 @@ class InspectionViewModel
             _showLoadingBar.postValue(Event(true))
             secureSharedPrefs.getString(LoginConstants.TOKEN)?.let { token ->
                 disposables.add(
-                    secretCustomerApiService.startSession(token, shop.id)
+                    secretCustomerApiService.startSession(token, SessionStartData(shop.id))
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribeBy(
-                            {},
+                            { throw it },
                             { response ->
                                 session = response
                                 loadActions(token, shop)
