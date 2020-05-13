@@ -4,10 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.secretcustomer.domain.LoginViewModel
 import com.example.secretcustomer.domain.SignUpViewModel
-import com.example.secretcustomer.domain.customer.FeedbackViewModel
-import com.example.secretcustomer.domain.customer.ProfileViewModel
-import com.example.secretcustomer.domain.customer.ShopsViewModel
-import com.example.secretcustomer.domain.customer.WithdrawalViewModel
+import com.example.secretcustomer.domain.customer.*
 import dagger.Binds
 import dagger.MapKey
 import dagger.Module
@@ -51,6 +48,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(WithdrawalViewModel::class)
     internal abstract fun bindWithdrawalViewModelViewModel(viewModel: WithdrawalViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(InspectionViewModel::class)
+    internal abstract fun bindInspectionViewModel(viewModel: InspectionViewModel): ViewModel
 }
 
 class ViewModelFactory @Inject constructor(private val viewModels: MutableMap<Class<out ViewModel>, Provider<ViewModel>>) :

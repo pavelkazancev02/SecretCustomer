@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_inspection"
+    app:startDestination="@id/shopInspectionFragment">
+
+    <fragment
+        android:id="@+id/shopInspectionFragment"
+        android:name="com.example.secretcustomer.ui.fragments.customer.ShopInspectionFragment"
+        android:label="ShopInspectionFragment">
+        <action
+            android:id="@+id/action_shopInspectionFragment_to_shopInspectionFinishFragment"
+            app:destination="@id/shopInspectionFinishFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shopInspectionFinishFragment"
+        android:name="com.example.secretcustomer.ui.fragments.customer.ShopInspectionFinishFragment"
+        android:label="ShopInspectionFinishFragment" />
+</navigation>

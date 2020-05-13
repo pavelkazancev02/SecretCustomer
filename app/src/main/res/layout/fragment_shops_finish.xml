@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.secretcustomer.domain.customer.InspectionViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/shops_finish_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="@string/finish"
+            android:textColor="@color/black1"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="24dp"
+            android:background="@color/dividerColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shops_finish_title" />
+
+        <ImageView
+            android:id="@+id/shops_finish_smile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider1"
+            app:srcCompat="@drawable/smile_270dp" />
+
+        <TextView
+            android:id="@+id/shops_finish_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/shops_finish_message"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="@+id/shops_finish_smile"
+            app:layout_constraintStart_toStartOf="@+id/shops_finish_smile"
+            app:layout_constraintTop_toBottomOf="@+id/shops_finish_smile" />
+
+        <TextView
+            android:id="@+id/shops_finish_thank_you"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/shops_finish_thank_you"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="@+id/shops_finish_smile"
+            app:layout_constraintStart_toStartOf="@+id/shops_finish_smile"
+            app:layout_constraintTop_toBottomOf="@+id/shops_finish_text" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/shops_finish_back_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:onClick="@{viewModel::onLeaveInspection}"
+            android:text="@string/back_to_shops"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:theme="@style/Theme.MaterialComponents"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shops_finish_thank_you" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

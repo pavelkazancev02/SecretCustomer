@@ -12,14 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.WithdrawActivity">
+        <activity android:name=".ui.activities.InspectionActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activities.CustomerActivity"></activity>
+        <activity android:name=".ui.activities.WithdrawActivity"></activity>
+        <activity android:name=".ui.activities.CustomerActivity" />
         <activity android:name=".ui.activities.LoginActivity" />
 
         <meta-data

@@ -11,20 +11,20 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.secretcustomer.R
 import com.example.secretcustomer.SecretCustomerApplication
-import com.example.secretcustomer.databinding.FragmentProfileBinding
+import com.example.secretcustomer.databinding.FragmentShopsInspectionBinding
 import com.example.secretcustomer.di.ViewModelFactory
-import com.example.secretcustomer.domain.customer.ProfileViewModel
+import com.example.secretcustomer.domain.customer.InspectionViewModel
 import com.example.secretcustomer.util.NavigationCommand
 import javax.inject.Inject
 
 /**
  * A simple [Fragment] subclass.
  */
-class ProfileFragment : Fragment() {
+class ShopInspectionFragment : Fragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
-    private lateinit var viewModel: ProfileViewModel
-    private lateinit var binding: FragmentProfileBinding
+    private lateinit var viewModel: InspectionViewModel
+    private lateinit var binding: FragmentShopsInspectionBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,13 +32,14 @@ class ProfileFragment : Fragment() {
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
 
-        (requireActivity().application as SecretCustomerApplication).appComponent.injectProfileFragment(
+        (requireActivity().application as SecretCustomerApplication).appComponent.injectShopInspectionFragment(
             this
         )
 
-        viewModel = ViewModelProvider(this, viewModelFactory).get(ProfileViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(InspectionViewModel::class.java)
 
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
+        binding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_shops_inspection, container, false)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
@@ -75,4 +76,5 @@ class ProfileFragment : Fragment() {
             }
         })
     }
+
 }
