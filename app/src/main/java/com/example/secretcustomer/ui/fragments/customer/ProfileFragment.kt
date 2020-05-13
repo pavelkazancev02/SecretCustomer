@@ -1,10 +1,9 @@
-package com.example.secretcustomer.ui.fragments
+package com.example.secretcustomer.ui.fragments.customer
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -12,37 +11,37 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.secretcustomer.R
 import com.example.secretcustomer.SecretCustomerApplication
-import com.example.secretcustomer.databinding.FragmentLoginBinding
+import com.example.secretcustomer.databinding.FragmentProfileBinding
 import com.example.secretcustomer.di.ViewModelFactory
-import com.example.secretcustomer.domain.LoginViewModel
+import com.example.secretcustomer.domain.customer.ProfileViewModel
 import com.example.secretcustomer.util.NavigationCommand
 import javax.inject.Inject
 
-class LoginFragment: Fragment() {
-
-    // Инжектим нашу кастомную фабрику из модуля di , так как она сама будет определять,
-    // создать новую вью модель или использовать существующую
+/**
+ * A simple [Fragment] subclass.
+ */
+class ProfileFragment : Fragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
-    // DataBinding из layout
-    private lateinit var binding: FragmentLoginBinding
-    private lateinit var viewModel: LoginViewModel
+    private lateinit var viewModel: ProfileViewModel
+    private lateinit var binding: FragmentProfileBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
 
-        // Обязательно инжектим наш в фрагмент в аппликейшион, иначе фабрика не заинжектиться и все упадет
-        (requireActivity().application as SecretCustomerApplication).appComponent.injectLoginFragment(this)
+        (requireActivity().application as SecretCustomerApplication).appComponent.injectProfileFragment(
+            this
+        )
 
+        viewModel = ViewModelProvider(this, viewModelFactory).get(ProfileViewModel::class.java)
 
-        viewModel = ViewModelProvider(this, viewModelFactory).get(LoginViewModel::class.java)
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
+
         return binding.root
     }
 
@@ -51,15 +50,8 @@ class LoginFragment: Fragment() {
         observeViewModel()
     }
 
-    private fun observeViewModel() {
 
-        // Набюдаем наши LiveData
-        viewModel.error.observe(viewLifecycleOwner, Observer { errorEvent ->
-            errorEvent.getContentIfNotHandled()?.let { resId ->
-                Toast.makeText(requireContext(), getString(resId), Toast.LENGTH_LONG).show()
-            }
-        })
-        
+    private fun observeViewModel() {
         viewModel.navigationEvent.observe(viewLifecycleOwner, Observer { navEvent ->
             navEvent.getContentIfNotHandled()?.let { navigationCommand ->
                 when (navigationCommand) {
@@ -73,8 +65,8 @@ class LoginFragment: Fragment() {
                         startActivity(navigationCommand.intent)
                         activity?.finish()
                     }
-                    is NavigationCommand.Finish ->
-                        activity?.finish()
+                    else -> {
+                    }
                 }
             }
         })
@@ -82,9 +74,9 @@ class LoginFragment: Fragment() {
         viewModel.showLoadingBar.observe(viewLifecycleOwner, Observer { showEvent ->
             showEvent.getContentIfNotHandled()?.let { show ->
                 if (show) {
-                    binding.loadingBar.visibility = View.VISIBLE
+                    binding.progressBar.visibility = View.VISIBLE
                 } else {
-                    binding.loadingBar.visibility = View.GONE
+                    binding.progressBar.visibility = View.GONE
                 }
             }
         })

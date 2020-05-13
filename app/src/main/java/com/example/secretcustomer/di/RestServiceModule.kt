@@ -8,4 +8,13 @@ import dagger.Provides
 class RestServiceModule {
     @Provides
     fun provideUserService() = RestClient().userApiService
+
+    @Provides
+    fun provideShopApiService() = RestClient().shopApiService
+
+    @Provides
+    fun provideFeedbackApiService() = RestClient().feedbackApiService
+
+    @Provides
+    fun provideSecretCustomerApiService() = RestClient().secretCustomerApiService
 }

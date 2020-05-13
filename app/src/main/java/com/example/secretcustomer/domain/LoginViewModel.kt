@@ -1,5 +1,7 @@
 package com.example.secretcustomer.domain
 
+import android.app.Application
+import android.content.Intent
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.LiveData
@@ -8,6 +10,7 @@ import androidx.lifecycle.ViewModel
 import com.example.secretcustomer.R
 import com.example.secretcustomer.data.LoginPostData
 import com.example.secretcustomer.data.UserApiService
+import com.example.secretcustomer.ui.activities.CustomerActivity
 import com.example.secretcustomer.ui.fragments.LoginFragmentDirections
 import com.example.secretcustomer.util.Event
 import com.example.secretcustomer.util.NavigationCommand
@@ -25,6 +28,7 @@ import javax.inject.Named
 class LoginViewModel
 @Inject constructor(
     val userApiService: UserApiService,
+    val application: Application,
     @Named("secure") val secureSharedPrefs: SharedPreferencesWrapper
 ) : ViewModel() {
 
@@ -90,9 +94,7 @@ class LoginViewModel
                     if (response.isSuccessful) {
                         val token = response.headers().get(LoginConstants.TOKEN_HEADER)
                         secureSharedPrefs.set(LoginConstants.TOKEN, token!!)
-                        _showLoadingBar.postValue(Event(false))
-                        // TODO перейти на главную активити
-                        //_navigationEvents.postValue(NavigationCommand.ToIntent())
+                        loadAdditionalInfo(token)
                     } else {
                         // В асинхронищине в LiveData нужно постить значение, а не просто сетить, так как
                         // на другом треде
@@ -104,6 +106,29 @@ class LoginViewModel
                         }
                         _password.postValue("")
                     }
+                }
+            )
+        )
+    }
+
+    private fun loadAdditionalInfo(token: String) {
+        disposables.add(userApiService.getUserInfo(token)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeBy(
+                {},
+                { response ->
+                    _showLoadingBar.postValue(Event(false))
+                    secureSharedPrefs.set(LoginConstants.ROLE, response.role.toString())
+                    secureSharedPrefs.set(LoginConstants.USER_ID, response.id)
+                    val intent = Intent(application, CustomerActivity::class.java)
+                    _navigationEvents.postValue(
+                        Event(
+                            NavigationCommand.ToIntentWithFinish(
+                                intent
+                            )
+                        )
+                    )
                 }
             )
         )

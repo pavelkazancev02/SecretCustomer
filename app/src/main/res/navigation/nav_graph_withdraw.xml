@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_withdraw"
+    app:startDestination="@id/withdrawCardInfoFragment">
+
+    <fragment
+        android:id="@+id/withdrawFinishFragment"
+        android:name="com.example.secretcustomer.ui.fragments.customer.WithdrawFinishFragment"
+        android:label="WithdrawFinishFragment" />
+    <fragment
+        android:id="@+id/withdrawCardInfoFragment"
+        android:name="com.example.secretcustomer.ui.fragments.customer.WithdrawCardInfoFragment"
+        android:label="WithdrawCardInfoFragment">
+        <action
+            android:id="@+id/action_withdrawCardInfoFragment_to_withdrawFinishFragment"
+            app:destination="@id/withdrawFinishFragment"
+            app:popUpTo="@id/withdrawFinishFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

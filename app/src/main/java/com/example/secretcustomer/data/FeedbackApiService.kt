@@ -26,7 +26,7 @@ interface FeedbackApiService {
         @Path("id") id: Int,
         @Query("pageSize") pageSize: Int,
         @Query("offset") offset: Int
-    ): Single<Feedback>
+    ): Single<List<Feedback>>
 
     @POST("/feedback")
     fun leaveFeedback(
@@ -42,9 +42,9 @@ interface FeedbackApiService {
 }
 
 data class FeedbackPostData(
-    val customerEmail: String,
     @SerializedName("shopId") val shopId: Int,
     @SerializedName("pros") val pros: String,
     @SerializedName("cons") val cons: String,
+    @SerializedName("rating") val rating: Int,
     @SerializedName("additionalInfo") val additionalInfo: String?
 )

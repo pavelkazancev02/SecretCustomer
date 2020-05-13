@@ -71,7 +71,7 @@ class SignUpFragment : Fragment() {
                         findNavController().navigateUp()
                     is NavigationCommand.To ->
                         findNavController().navigate(navigationCommand.directions)
-                    is NavigationCommand.ToIntent -> {
+                    else -> {
                     }
                 }
             }
