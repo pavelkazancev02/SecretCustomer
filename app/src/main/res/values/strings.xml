@@ -33,4 +33,14 @@
     <string name="my_feedback">My Feedback</string>
     <string name="shops">Shops</string>
     <string name="inspect">Inspect   </string>
+
+    <string name="no_email">Enter email</string>
+    <string name="no_password">Enter password</string>
+    <string name="no_first_name">Enter first name</string>
+    <string name="no_last_name">Enter last name</string>
+    <string name="user_already_exists_error">User with such email already exists</string>
+    <string name="incorrect_phone_pattern">Enter valid phone number</string>
+    <string name="wrong_login_data">Incorrect email or password</string>
+    <string name="server_not_responding">Server is down</string>
+    <string name="successful_registration">User is successfully registered</string>
 </resources>
