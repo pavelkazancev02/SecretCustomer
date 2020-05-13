@@ -2,6 +2,7 @@ package com.example.secretcustomer.di
 
 
 import com.example.secretcustomer.ui.fragments.LoginFragment
+import com.example.secretcustomer.ui.fragments.MyFeedbackFragment
 import com.example.secretcustomer.ui.fragments.ShopsFragment
 import com.example.secretcustomer.ui.fragments.SignUpFragment
 import dagger.Component
@@ -19,4 +20,5 @@ interface ApplicationComponent {
     fun injectLoginFragment(fragment: LoginFragment)
     fun injectSignUpFragment(fragment: SignUpFragment)
     fun injectShopsFragment(fragment: ShopsFragment)
+    fun injectCustomerFeedbackFragment(fragment: MyFeedbackFragment)
 }

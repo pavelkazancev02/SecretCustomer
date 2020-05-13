@@ -1,7 +1,6 @@
 package com.example.secretcustomer.ui.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +18,7 @@ import com.example.secretcustomer.adapters.CustomerShopsAdapter
 import com.example.secretcustomer.data.Shop
 import com.example.secretcustomer.databinding.FragmentShopsBinding
 import com.example.secretcustomer.di.ViewModelFactory
-import com.example.secretcustomer.domain.ShopsViewModel
+import com.example.secretcustomer.domain.customer.ShopsViewModel
 import com.example.secretcustomer.util.NavigationCommand
 import com.example.secretcustomer.util.OnButtonClickListener
 import javax.inject.Inject
@@ -92,7 +91,6 @@ class ShopsFragment : Fragment() {
                 shopsList.clear()
                 shopsList.addAll(shops)
                 shopsAdapter.notifyDataSetChanged()
-                Log.d(null, "Магазины залиты ${shops.size}")
             }
         })
 

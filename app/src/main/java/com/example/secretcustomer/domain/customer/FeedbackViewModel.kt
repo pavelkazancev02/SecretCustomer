@@ -1,26 +1,26 @@
-package com.example.secretcustomer.domain
+package com.example.secretcustomer.domain.customer
 
-import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.secretcustomer.data.Shop
-import com.example.secretcustomer.data.ShopApiService
+import com.example.secretcustomer.data.Feedback
+import com.example.secretcustomer.data.FeedbackApiService
 import com.example.secretcustomer.util.Event
 import com.example.secretcustomer.util.NavigationCommand
 import com.example.secretcustomer.util.sharedpreferences.SharedPreferencesWrapper
 import io.reactivex.disposables.CompositeDisposable
+import java.util.*
 import javax.inject.Inject
 import javax.inject.Named
 
 // Инжектим даггером наш сервис, смотреть папку di: RestServiceModule, ViewModelModule
-class ShopsViewModel
+class FeedbackViewModel
 @Inject constructor(
-    val shopApiService: ShopApiService,
+    val feedbackApiService: FeedbackApiService,
     @Named("secure") val secureSharedPrefs: SharedPreferencesWrapper
 ) : ViewModel() {
-    private val _shops = MutableLiveData<Event<List<Shop>>>()
-    val shops: LiveData<Event<List<Shop>>> get() = _shops
+    private val _feedback = MutableLiveData<Event<List<Feedback>>>()
+    val feedback: LiveData<Event<List<Feedback>>> get() = _feedback
 
     // LiveData для управления навигацией, так как она может совершаться только из ui.
     private val _navigationEvents = MutableLiveData<Event<NavigationCommand>>()
@@ -32,22 +32,26 @@ class ShopsViewModel
     private val disposables = CompositeDisposable()
 
     init {
-        _shops.postValue(
+        _feedback.postValue(
             Event(
                 listOf(
-                    Shop(
-                        id = "1",
-                        name = "Test Shop",
-                        ownerId = 1,
-                        address = "address...",
-                        balance = 0
+                    Feedback(
+                        id = 0,
+                        shopName = "Test Shop",
+                        customerEmail = "text",
+                        pros = "",
+                        cons = "",
+                        additionalInfo = "Some text of feedback",
+                        date = Date()
                     ),
-                    Shop(
-                        id = "2",
-                        name = "Test Shop2",
-                        ownerId = 1,
-                        address = "address...",
-                        balance = 0
+                    Feedback(
+                        id = 1,
+                        shopName = "Test Shop 2",
+                        customerEmail = "text",
+                        pros = "",
+                        cons = "",
+                        additionalInfo = "Another Some text of feedback",
+                        date = Date()
                     )
                 )
             )
@@ -57,17 +61,5 @@ class ShopsViewModel
     override fun onCleared() {
         super.onCleared()
         disposables.clear()
-    }
-
-    fun inspectShop(shop: Shop) {
-        // todo
-    }
-
-    fun leaveFeedback(shop: Shop) {
-        // todo
-    }
-
-    fun onScanQRClick(view: View) {
-        // todo?
     }
 }

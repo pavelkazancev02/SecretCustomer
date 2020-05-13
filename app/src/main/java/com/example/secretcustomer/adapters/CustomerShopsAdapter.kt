@@ -45,7 +45,7 @@ class CustomerShopsAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShopCardViewHolder {
         val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.customer_shop_layout, parent, false)
+            .inflate(R.layout.customer_shop_card_layout, parent, false)
         return ShopCardViewHolder(itemView)
     }
 

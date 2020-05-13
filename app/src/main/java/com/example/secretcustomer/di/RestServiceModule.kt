@@ -11,4 +11,7 @@ class RestServiceModule {
 
     @Provides
     fun provideShopApiService() = RestClient().shopApiService
+
+    @Provides
+    fun provideFeedbackApiService() = RestClient().feedbackApiService
 }
