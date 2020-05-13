@@ -1,4 +1,4 @@
-package com.example.secretcustomer.ui.fragments
+package com.example.secretcustomer.ui.fragments.customer
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,20 +11,20 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.secretcustomer.R
 import com.example.secretcustomer.SecretCustomerApplication
-import com.example.secretcustomer.databinding.FragmentProfileBinding
+import com.example.secretcustomer.databinding.FragmentProfileWithdrawFinishBinding
 import com.example.secretcustomer.di.ViewModelFactory
-import com.example.secretcustomer.domain.customer.ProfileViewModel
+import com.example.secretcustomer.domain.customer.WithdrawalViewModel
 import com.example.secretcustomer.util.NavigationCommand
 import javax.inject.Inject
 
 /**
  * A simple [Fragment] subclass.
  */
-class ProfileFragment : Fragment() {
+class WithdrawFinishFragment : Fragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
-    private lateinit var viewModel: ProfileViewModel
-    private lateinit var binding: FragmentProfileBinding
+    private lateinit var viewModel: WithdrawalViewModel
+    private lateinit var binding: FragmentProfileWithdrawFinishBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,19 +32,28 @@ class ProfileFragment : Fragment() {
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
 
-        (requireActivity().application as SecretCustomerApplication).appComponent.injectProfileFragment(
+        (requireActivity().application as SecretCustomerApplication).appComponent.injectProfileWithdrawFinishFragment(
             this
         )
 
-        viewModel = ViewModelProvider(this, viewModelFactory).get(ProfileViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(WithdrawalViewModel::class.java)
 
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_profile_withdraw_finish,
+            container,
+            false
+        )
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        observeViewModel()
+    }
 
     private fun observeViewModel() {
         viewModel.navigationEvent.observe(viewLifecycleOwner, Observer { navEvent ->
@@ -59,15 +68,6 @@ class ProfileFragment : Fragment() {
                 }
             }
         })
-
-        viewModel.showLoadingBar.observe(viewLifecycleOwner, Observer { showEvent ->
-            showEvent.getContentIfNotHandled()?.let { show ->
-                if (show) {
-                    binding.progressBar.visibility = View.VISIBLE
-                } else {
-                    binding.progressBar.visibility = View.GONE
-                }
-            }
-        })
     }
+
 }

@@ -1,4 +1,4 @@
-package com.example.secretcustomer.ui.fragments
+package com.example.secretcustomer.ui.fragments.customer
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,24 +14,25 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.secretcustomer.R
 import com.example.secretcustomer.SecretCustomerApplication
-import com.example.secretcustomer.adapters.CustomerShopsAdapter
-import com.example.secretcustomer.data.Shop
-import com.example.secretcustomer.databinding.FragmentShopsBinding
+import com.example.secretcustomer.adapters.CustomerFeedbackAdapter
+import com.example.secretcustomer.data.Feedback
+import com.example.secretcustomer.databinding.FragmentMyFeedbackBinding
 import com.example.secretcustomer.di.ViewModelFactory
-import com.example.secretcustomer.domain.customer.ShopsViewModel
+import com.example.secretcustomer.domain.customer.FeedbackViewModel
 import com.example.secretcustomer.util.NavigationCommand
-import com.example.secretcustomer.util.OnButtonClickListener
 import javax.inject.Inject
 
-
-class ShopsFragment : Fragment() {
+/**
+ * A simple [Fragment] subclass.
+ */
+class MyFeedbackFragment : Fragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
-    private lateinit var viewModel: ShopsViewModel
-    private val shopsList: ArrayList<Shop> = ArrayList()
-    private lateinit var shopsAdapter: CustomerShopsAdapter
-    private lateinit var shopsRecyclerView: RecyclerView
-    private lateinit var binding: FragmentShopsBinding
+    private lateinit var viewModel: FeedbackViewModel
+    private val feedbackList: ArrayList<Feedback> = ArrayList()
+    private lateinit var feedbackAdapter: CustomerFeedbackAdapter
+    private lateinit var feedbackRecyclerView: RecyclerView
+    private lateinit var binding: FragmentMyFeedbackBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,13 +40,13 @@ class ShopsFragment : Fragment() {
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
 
-        (requireActivity().application as SecretCustomerApplication).appComponent.injectShopsFragment(
+        (requireActivity().application as SecretCustomerApplication).appComponent.injectCustomerFeedbackFragment(
             this
         )
 
-        viewModel = ViewModelProvider(this, viewModelFactory).get(ShopsViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(FeedbackViewModel::class.java)
 
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shops, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_my_feedback, container, false)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
@@ -59,38 +60,21 @@ class ShopsFragment : Fragment() {
     }
 
     private fun prepareAdapter() {
-        val inspectClickListener = object : OnButtonClickListener<Shop> {
-            override fun onButtonClicked(item: Shop) {
-                viewModel.inspectShop(item)
-            }
-        }
-
-        val leaveFeedbackClickListener = object : OnButtonClickListener<Shop> {
-            override fun onButtonClicked(item: Shop) {
-                viewModel.leaveFeedback(item)
-            }
-        }
-
-        shopsAdapter = CustomerShopsAdapter(
-            requireActivity(),
-            shopsList,
-            inspectClickListener,
-            leaveFeedbackClickListener
-        )
-        shopsRecyclerView = binding.shopsContainer
-        shopsRecyclerView.apply {
+        feedbackAdapter = CustomerFeedbackAdapter(requireContext(), feedbackList)
+        feedbackRecyclerView = binding.feedbackContainer
+        feedbackRecyclerView.apply {
             layoutManager = LinearLayoutManager(activity)
             itemAnimator = DefaultItemAnimator()
-            adapter = shopsAdapter
+            adapter = feedbackAdapter
         }
     }
 
     private fun observeViewModel() {
-        viewModel.shops.observe(viewLifecycleOwner, Observer { shopsEvent ->
-            shopsEvent.getContentIfNotHandled()?.let { shops ->
-                shopsList.clear()
-                shopsList.addAll(shops)
-                shopsAdapter.notifyDataSetChanged()
+        viewModel.feedback.observe(viewLifecycleOwner, Observer { feedbackEvent ->
+            feedbackEvent.getContentIfNotHandled()?.let { shops ->
+                feedbackList.clear()
+                feedbackList.addAll(shops)
+                feedbackAdapter.notifyDataSetChanged()
             }
         })
 

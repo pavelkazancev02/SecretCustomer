@@ -1,4 +1,4 @@
-package com.example.secretcustomer.ui.fragments
+package com.example.secretcustomer.ui.fragments.customer
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,30 +9,22 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.secretcustomer.R
 import com.example.secretcustomer.SecretCustomerApplication
-import com.example.secretcustomer.adapters.CustomerFeedbackAdapter
-import com.example.secretcustomer.data.Feedback
-import com.example.secretcustomer.databinding.FragmentMyFeedbackBinding
+import com.example.secretcustomer.databinding.FragmentProfileWithdrawBinding
 import com.example.secretcustomer.di.ViewModelFactory
-import com.example.secretcustomer.domain.customer.FeedbackViewModel
+import com.example.secretcustomer.domain.customer.WithdrawalViewModel
 import com.example.secretcustomer.util.NavigationCommand
 import javax.inject.Inject
 
 /**
  * A simple [Fragment] subclass.
  */
-class MyFeedbackFragment : Fragment() {
+class WithdrawCardInfoFragment : Fragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
-    private lateinit var viewModel: FeedbackViewModel
-    private val feedbackList: ArrayList<Feedback> = ArrayList()
-    private lateinit var feedbackAdapter: CustomerFeedbackAdapter
-    private lateinit var feedbackRecyclerView: RecyclerView
-    private lateinit var binding: FragmentMyFeedbackBinding
+    private lateinit var viewModel: WithdrawalViewModel
+    private lateinit var binding: FragmentProfileWithdrawBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,17 +32,17 @@ class MyFeedbackFragment : Fragment() {
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
 
-        (requireActivity().application as SecretCustomerApplication).appComponent.injectCustomerFeedbackFragment(
+        (requireActivity().application as SecretCustomerApplication).appComponent.injectProfileWithdrawFragment(
             this
         )
 
-        viewModel = ViewModelProvider(this, viewModelFactory).get(FeedbackViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(WithdrawalViewModel::class.java)
 
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_my_feedback, container, false)
+        binding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_profile_withdraw, container, false)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
-        prepareAdapter()
         return binding.root
     }
 
@@ -59,25 +51,7 @@ class MyFeedbackFragment : Fragment() {
         observeViewModel()
     }
 
-    private fun prepareAdapter() {
-        feedbackAdapter = CustomerFeedbackAdapter(requireContext(), feedbackList)
-        feedbackRecyclerView = binding.feedbackContainer
-        feedbackRecyclerView.apply {
-            layoutManager = LinearLayoutManager(activity)
-            itemAnimator = DefaultItemAnimator()
-            adapter = feedbackAdapter
-        }
-    }
-
     private fun observeViewModel() {
-        viewModel.feedback.observe(viewLifecycleOwner, Observer { feedbackEvent ->
-            feedbackEvent.getContentIfNotHandled()?.let { shops ->
-                feedbackList.clear()
-                feedbackList.addAll(shops)
-                feedbackAdapter.notifyDataSetChanged()
-            }
-        })
-
         viewModel.navigationEvent.observe(viewLifecycleOwner, Observer { navEvent ->
             navEvent.getContentIfNotHandled()?.let { navigationCommand ->
                 when (navigationCommand) {
