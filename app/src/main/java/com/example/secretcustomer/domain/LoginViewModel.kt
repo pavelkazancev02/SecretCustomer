@@ -94,15 +94,7 @@ class LoginViewModel
                     if (response.isSuccessful) {
                         val token = response.headers().get(LoginConstants.TOKEN_HEADER)
                         secureSharedPrefs.set(LoginConstants.TOKEN, token!!)
-                        _showLoadingBar.postValue(Event(false))
-                        val intent = Intent(application, CustomerActivity::class.java)
-                        _navigationEvents.postValue(
-                            Event(
-                                NavigationCommand.ToIntentWithFinish(
-                                    intent
-                                )
-                            )
-                        )
+                        loadAdditionalInfo(token)
                     } else {
                         // В асинхронищине в LiveData нужно постить значение, а не просто сетить, так как
                         // на другом треде
@@ -114,6 +106,29 @@ class LoginViewModel
                         }
                         _password.postValue("")
                     }
+                }
+            )
+        )
+    }
+
+    private fun loadAdditionalInfo(token: String) {
+        disposables.add(userApiService.getUserInfo(token)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeBy(
+                {},
+                { response ->
+                    _showLoadingBar.postValue(Event(false))
+                    secureSharedPrefs.set(LoginConstants.ROLE, response.role.toString())
+                    secureSharedPrefs.set(LoginConstants.USER_ID, response.id)
+                    val intent = Intent(application, CustomerActivity::class.java)
+                    _navigationEvents.postValue(
+                        Event(
+                            NavigationCommand.ToIntentWithFinish(
+                                intent
+                            )
+                        )
+                    )
                 }
             )
         )

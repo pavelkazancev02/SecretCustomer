@@ -7,9 +7,12 @@ import com.example.secretcustomer.data.Feedback
 import com.example.secretcustomer.data.FeedbackApiService
 import com.example.secretcustomer.util.Event
 import com.example.secretcustomer.util.NavigationCommand
+import com.example.secretcustomer.util.constants.LoginConstants
 import com.example.secretcustomer.util.sharedpreferences.SharedPreferencesWrapper
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import java.util.*
+import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -32,30 +35,24 @@ class FeedbackViewModel
     private val disposables = CompositeDisposable()
 
     init {
-        _feedback.postValue(
-            Event(
-                listOf(
-                    Feedback(
-                        id = 0,
-                        shopName = "Test Shop",
-                        customerEmail = "text",
-                        pros = "",
-                        cons = "",
-                        additionalInfo = "Some text of feedback",
-                        date = Date()
-                    ),
-                    Feedback(
-                        id = 1,
-                        shopName = "Test Shop 2",
-                        customerEmail = "text",
-                        pros = "",
-                        cons = "",
-                        additionalInfo = "Another Some text of feedback",
-                        date = Date()
+        _showLoadingBar.postValue(Event(true))
+        secureSharedPrefs.getString(LoginConstants.TOKEN)?.let { token ->
+            secureSharedPrefs.getInt(LoginConstants.USER_ID).let { userId ->
+                // ToDo pagination
+                disposables.add(
+                    feedbackApiService.getPaginatedFeedbackByCustomerId(token, userId, 10, 0)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribeBy(
+                            {},
+                            { response ->
+                                _showLoadingBar.postValue(Event(false))
+                                _feedback.postValue(Event(response))
+                            }
                     )
                 )
-            )
-        )
+            }
+        }
     }
 
     override fun onCleared() {

@@ -26,7 +26,7 @@ interface FeedbackApiService {
         @Path("id") id: Int,
         @Query("pageSize") pageSize: Int,
         @Query("offset") offset: Int
-    ): Single<Feedback>
+    ): Single<List<Feedback>>
 
     @POST("/feedback")
     fun leaveFeedback(

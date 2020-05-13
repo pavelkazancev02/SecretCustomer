@@ -8,8 +8,12 @@ import com.example.secretcustomer.data.Shop
 import com.example.secretcustomer.data.ShopApiService
 import com.example.secretcustomer.util.Event
 import com.example.secretcustomer.util.NavigationCommand
+import com.example.secretcustomer.util.constants.LoginConstants
 import com.example.secretcustomer.util.sharedpreferences.SharedPreferencesWrapper
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -32,26 +36,22 @@ class ShopsViewModel
     private val disposables = CompositeDisposable()
 
     init {
-        _shops.postValue(
-            Event(
-                listOf(
-                    Shop(
-                        id = "1",
-                        name = "Test Shop",
-                        ownerId = 1,
-                        address = "address...",
-                        balance = 0
-                    ),
-                    Shop(
-                        id = "2",
-                        name = "Test Shop2",
-                        ownerId = 1,
-                        address = "address...",
-                        balance = 0
-                    )
+        _showLoadingBar.postValue(Event(true))
+        secureSharedPrefs.getString(LoginConstants.TOKEN)?.let { token ->
+            // ToDo pagination
+            disposables.add(
+                shopApiService.getPaginatedShopList(token, 10, 0)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeBy(
+                        {},
+                        { response ->
+                            _showLoadingBar.postValue(Event(false))
+                            _shops.postValue(Event(response))
+                        }
                 )
             )
-        )
+        }
     }
 
     override fun onCleared() {
