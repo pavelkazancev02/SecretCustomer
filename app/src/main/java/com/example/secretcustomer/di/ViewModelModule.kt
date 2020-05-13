@@ -3,6 +3,7 @@ package com.example.secretcustomer.di
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.secretcustomer.domain.LoginViewModel
+import com.example.secretcustomer.domain.ShopsViewModel
 import com.example.secretcustomer.domain.SignUpViewModel
 import dagger.Binds
 import dagger.MapKey
@@ -27,6 +28,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(SignUpViewModel::class)
     internal abstract fun bindSignUpViewModel(viewModel: SignUpViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ShopsViewModel::class)
+    internal abstract fun bindShopsViewModel(viewModel: ShopsViewModel): ViewModel
 }
 
 class ViewModelFactory @Inject constructor(private val viewModels: MutableMap<Class<out ViewModel>, Provider<ViewModel>>) :

@@ -12,5 +12,5 @@ data class Shop(
     @SerializedName("address")
     val address: String,
     @SerializedName("balance")
-    val balance: Float
+    val balance: Int
 )
