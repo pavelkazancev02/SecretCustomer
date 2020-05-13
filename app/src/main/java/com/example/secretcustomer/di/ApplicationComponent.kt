@@ -1,10 +1,7 @@
 package com.example.secretcustomer.di
 
 
-import com.example.secretcustomer.ui.fragments.LoginFragment
-import com.example.secretcustomer.ui.fragments.MyFeedbackFragment
-import com.example.secretcustomer.ui.fragments.ShopsFragment
-import com.example.secretcustomer.ui.fragments.SignUpFragment
+import com.example.secretcustomer.ui.fragments.*
 import dagger.Component
 import javax.inject.Singleton
 
@@ -21,4 +18,5 @@ interface ApplicationComponent {
     fun injectSignUpFragment(fragment: SignUpFragment)
     fun injectShopsFragment(fragment: ShopsFragment)
     fun injectCustomerFeedbackFragment(fragment: MyFeedbackFragment)
+    fun injectProfileFragment(fragment: ProfileFragment)
 }
