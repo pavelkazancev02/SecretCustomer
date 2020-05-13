@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.secretcustomer.data.*
+import com.example.secretcustomer.ui.fragments.customer.ShopInspectionFragmentDirections
 import com.example.secretcustomer.util.Event
 import com.example.secretcustomer.util.NavigationCommand
 import com.example.secretcustomer.util.constants.LoginConstants
@@ -27,7 +28,7 @@ class InspectionViewModel
     private lateinit var shop: Shop
     private var session: Session? = null
     private lateinit var actions: List<Action>
-    private lateinit var responses: Array<String>
+    private var responses: Array<String>
 
     private val _currentStage = MutableLiveData<Stage>()
     val currentStage: LiveData<Stage> get() = _currentStage
@@ -111,8 +112,7 @@ class InspectionViewModel
                 restoreState()
             }
         } else {
-            // todo сохранение результата
-            _navigationEvents.postValue(Event(NavigationCommand.Finish))
+            saveResults()
         }
     }
 
@@ -135,7 +135,7 @@ class InspectionViewModel
     }
 
     fun onLeaveInspection(view: View) {
-        //todo
+        _navigationEvents.postValue(Event(NavigationCommand.Finish))
     }
 
     private fun loadActions(token: String, shop: Shop) {
@@ -198,7 +198,13 @@ class InspectionViewModel
                             {},
                             { _ ->
                                 _showLoadingBar.postValue(Event(false))
-                                _navigationEvents.postValue(Event(NavigationCommand.Finish))
+                                _navigationEvents.postValue(
+                                    Event(
+                                        NavigationCommand.To(
+                                            ShopInspectionFragmentDirections.actionShopInspectionFragmentToShopInspectionFinishFragment()
+                                        )
+                                    )
+                                )
                             }
                         )
                 )
@@ -222,7 +228,13 @@ class InspectionViewModel
                             {},
                             { _ ->
                                 _showLoadingBar.postValue(Event(false))
-                                _navigationEvents.postValue(Event(NavigationCommand.Finish))
+                                _navigationEvents.postValue(
+                                    Event(
+                                        NavigationCommand.To(
+                                            ShopInspectionFragmentDirections.actionShopInspectionFragmentToShopInspectionFinishFragment()
+                                        )
+                                    )
+                                )
                             }
                         )
                 )
