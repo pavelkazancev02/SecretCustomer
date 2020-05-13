@@ -17,5 +17,7 @@ data class Feedback(
     @SerializedName("additionalInfo")
     val additionalInfo: String?,
     @SerializedName("date")
-    val date: Date
+    val date: Date,
+    @SerializedName("rating")
+    val rating: Int
 )
