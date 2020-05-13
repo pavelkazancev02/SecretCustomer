@@ -42,9 +42,9 @@ interface FeedbackApiService {
 }
 
 data class FeedbackPostData(
-    val customerEmail: String,
     @SerializedName("shopId") val shopId: Int,
     @SerializedName("pros") val pros: String,
     @SerializedName("cons") val cons: String,
+    @SerializedName("rating") val rating: Int,
     @SerializedName("additionalInfo") val additionalInfo: String?
 )

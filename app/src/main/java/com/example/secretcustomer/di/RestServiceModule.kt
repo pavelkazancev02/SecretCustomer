@@ -14,4 +14,7 @@ class RestServiceModule {
 
     @Provides
     fun provideFeedbackApiService() = RestClient().feedbackApiService
+
+    @Provides
+    fun provideSecretCustomerApiService() = RestClient().secretCustomerApiService
 }

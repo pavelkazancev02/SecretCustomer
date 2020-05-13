@@ -4,21 +4,31 @@ import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.secretcustomer.data.UserApiService
+import com.example.secretcustomer.data.*
 import com.example.secretcustomer.util.Event
 import com.example.secretcustomer.util.NavigationCommand
+import com.example.secretcustomer.util.constants.LoginConstants
 import com.example.secretcustomer.util.sharedpreferences.SharedPreferencesWrapper
 import com.example.secretcustomer.util.textWatchers.LiveDataTextWatcher
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 import javax.inject.Named
 
 // Инжектим даггером наш сервис, смотреть папку di: RestServiceModule, ViewModelModule
 class InspectionViewModel
 @Inject constructor(
-    val userApiService: UserApiService,
+    val secretCustomerApiService: SecretCustomerApiService,
+    val feedbackApiService: FeedbackApiService,
     @Named("secure") val secureSharedPrefs: SharedPreferencesWrapper
 ) : ViewModel() {
+    private lateinit var shop: Shop
+    private var session: Session? = null
+    private lateinit var actions: List<Action>
+    private lateinit var responses: Array<String>
+
     private val _currentStage = MutableLiveData<Stage>()
     val currentStage: LiveData<Stage> get() = _currentStage
     private val _currentStep = MutableLiveData<Int>()
@@ -52,11 +62,8 @@ class InspectionViewModel
     init {
         _currentStage.postValue(Stage.INSPECTION)
         _currentStep.postValue(1)
-        _totalSteps.postValue(3)
-        _shopTitle.postValue("Test Shop")
-        _shopAddress.postValue("Test Address")
-        _taskText.postValue("some task...")
-        _rating.postValue(Rating.BAD)
+        _totalSteps.postValue(1)
+        responses = Array(2) { "" }
     }
 
     override fun onCleared() {
@@ -64,8 +71,28 @@ class InspectionViewModel
         disposables.clear()
     }
 
-    fun initInspection(stage: Stage) {
-        //todo
+    fun initInspection(stage: Stage, shop: Shop) {
+        _currentStage.postValue(stage)
+        _shopTitle.postValue(shop.name)
+        _shopAddress.postValue(shop.address)
+        this.shop = shop
+        if (stage == Stage.INSPECTION) {
+            _showLoadingBar.postValue(Event(true))
+            secureSharedPrefs.getString(LoginConstants.TOKEN)?.let { token ->
+                disposables.add(
+                    secretCustomerApiService.startSession(token, shop.id)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribeBy(
+                            {},
+                            { response ->
+                                session = response
+                                loadActions(token, shop)
+                            }
+                        )
+                )
+            }
+        }
     }
 
     fun selectRating(rating: Rating) {
@@ -73,22 +100,140 @@ class InspectionViewModel
     }
 
     fun onNextStep(view: View) {
-        //todo
-        _currentStage.postValue(Stage.FEEDBACK)
+        if (currentStage.value == Stage.INSPECTION) {
+            if (currentStep.value == totalSteps.value) {
+                rememberState()
+                _currentStage.postValue(Stage.FEEDBACK)
+                restoreState()
+            } else {
+                rememberState()
+                _currentStep.postValue(currentStep.value!! + 1)
+                restoreState()
+            }
+        } else {
+            // todo сохранение результата
+            _navigationEvents.postValue(Event(NavigationCommand.Finish))
+        }
     }
 
     fun onPreviousStep(view: View) {
-        //todo
+        when {
+            currentStep.value == 1 -> {
+                _navigationEvents.postValue(Event(NavigationCommand.Finish))
+            }
+            currentStage.value == Stage.FEEDBACK -> {
+                rememberState()
+                _currentStage.postValue(Stage.INSPECTION)
+                restoreState()
+            }
+            else -> {
+                rememberState()
+                _currentStep.postValue(currentStep.value!! + 1)
+                restoreState()
+            }
+        }
     }
 
     fun onLeaveInspection(view: View) {
         //todo
     }
+
+    private fun loadActions(token: String, shop: Shop) {
+        disposables.add(
+            secretCustomerApiService.getActions(token, shop.id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeBy(
+                    {},
+                    { response ->
+                        actions = response
+                        _totalSteps.postValue(actions.size)
+                        _taskText.postValue(actions[1].action)
+                        _showLoadingBar.postValue(Event(false))
+                        responses = Array(actions.size + 1) { "" }
+                    }
+                )
+        )
+    }
+
+    private fun rememberState() {
+        val currentIndex =
+            if (currentStage.value == Stage.FEEDBACK) currentStep.value!! + 1 else currentStep.value!!
+        responses[currentIndex] = taskReport.value!!
+    }
+
+    private fun restoreState() {
+        val currentIndex =
+            if (currentStage.value == Stage.FEEDBACK) currentStep.value!! + 1 else currentStep.value!!
+        _taskReport.postValue(responses[currentIndex])
+        if (currentStage.value == Stage.INSPECTION) {
+            _taskText.postValue(actions[currentIndex].action)
+        }
+    }
+
+    private fun saveResults() {
+        _showLoadingBar.postValue(Event(true))
+        if (session != null) {
+            secureSharedPrefs.getString(LoginConstants.TOKEN)?.let { token ->
+                disposables.add(
+                    secretCustomerApiService.nextSessionStage(token, session!!.id)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .flatMap {
+                            secretCustomerApiService.endSession(
+                                token,
+                                session!!.id,
+                                SessionPostData(
+                                    shopId = shop.id,
+                                    pros = "",
+                                    cons = "",
+                                    rating = rating.value!!.ordinal,
+                                    additionalInfo = responses.last()
+                                )
+                            )
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                        }
+                        .subscribeBy(
+                            {},
+                            { _ ->
+                                _showLoadingBar.postValue(Event(false))
+                                _navigationEvents.postValue(Event(NavigationCommand.Finish))
+                            }
+                        )
+                )
+            }
+        } else {
+            secureSharedPrefs.getString(LoginConstants.TOKEN)?.let { token ->
+                disposables.add(
+                    feedbackApiService.leaveFeedback(
+                        token,
+                        FeedbackPostData(
+                            shopId = shop.id,
+                            pros = "",
+                            cons = "",
+                            rating = rating.value!!.ordinal,
+                            additionalInfo = responses.last()
+                        )
+                    )
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribeBy(
+                            {},
+                            { _ ->
+                                _showLoadingBar.postValue(Event(false))
+                                _navigationEvents.postValue(Event(NavigationCommand.Finish))
+                            }
+                        )
+                )
+            }
+        }
+    }
 }
 
-enum class Stage {
-    INSPECTION,
-    FEEDBACK
+enum class Stage(name: String) {
+    INSPECTION("INSPECTION"),
+    FEEDBACK("FEEDBACK")
 }
 
 enum class Rating(rating: Int) {

@@ -10,7 +10,7 @@ interface SecretCustomerApiService {
     fun getActions(
         @Header("Authorization") auth: String,
         @Path("id") id: Int
-    ): Single<Action>
+    ): Single<List<Action>>
 
     @GET("/secretCustomer/session/active")
     fun getActiveSession(
@@ -38,6 +38,7 @@ interface SecretCustomerApiService {
     @POST("/secretCustomer/session/end/{sessionId}")
     fun endSession(
         @Header("Authorization") auth: String,
+        @Path("sessionId") sessionId: Int,
         @Body sessionPostData: SessionPostData
     ): Single<Unit>
 
@@ -73,5 +74,6 @@ data class SessionPostData(
     @SerializedName("shopId") val shopId: Int,
     @SerializedName("pros") val pros: String,
     @SerializedName("cons") val cons: String,
+    @SerializedName("rating") val rating: Int,
     @SerializedName("additionalInfo") val additionalInfo: String?
 )

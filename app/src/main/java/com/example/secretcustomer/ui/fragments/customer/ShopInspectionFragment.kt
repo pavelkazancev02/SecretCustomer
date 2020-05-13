@@ -36,7 +36,10 @@ class ShopInspectionFragment : Fragment() {
             this
         )
 
-        viewModel = ViewModelProvider(this, viewModelFactory).get(InspectionViewModel::class.java)
+        viewModel = ViewModelProvider(
+            requireActivity(),
+            viewModelFactory
+        ).get(InspectionViewModel::class.java)
 
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_shops_inspection, container, false)
@@ -62,6 +65,8 @@ class ShopInspectionFragment : Fragment() {
                         findNavController().navigate(navigationCommand.directions)
                     is NavigationCommand.ToIntent ->
                         startActivity(navigationCommand.intent)
+                    is NavigationCommand.Finish ->
+                        activity?.finish()
                     else -> {
                     }
                 }

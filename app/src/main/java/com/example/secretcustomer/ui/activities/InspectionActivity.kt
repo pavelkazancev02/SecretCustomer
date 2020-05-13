@@ -7,6 +7,7 @@ import com.example.secretcustomer.R
 import com.example.secretcustomer.SecretCustomerApplication
 import com.example.secretcustomer.di.ViewModelFactory
 import com.example.secretcustomer.domain.customer.InspectionViewModel
+import com.example.secretcustomer.domain.customer.Stage
 import javax.inject.Inject
 
 class InspectionActivity : AppCompatActivity() {
@@ -23,5 +24,17 @@ class InspectionActivity : AppCompatActivity() {
         )
 
         viewModel = ViewModelProvider(this, viewModelFactory).get(InspectionViewModel::class.java)
+
+        intent?.let {
+            viewModel.initInspection(
+                intent.getSerializableExtra(ExtrasKeys.STAGE)!! as Stage,
+                intent.getParcelableExtra(ExtrasKeys.SHOP)!!
+            )
+        }
     }
+}
+
+object ExtrasKeys {
+    val STAGE = "stage"
+    val SHOP = "shop"
 }

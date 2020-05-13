@@ -1,11 +1,15 @@
 package com.example.secretcustomer.domain.customer
 
+import android.app.Application
+import android.content.Intent
 import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.secretcustomer.data.Shop
 import com.example.secretcustomer.data.ShopApiService
+import com.example.secretcustomer.ui.activities.ExtrasKeys
+import com.example.secretcustomer.ui.activities.InspectionActivity
 import com.example.secretcustomer.util.Event
 import com.example.secretcustomer.util.NavigationCommand
 import com.example.secretcustomer.util.constants.LoginConstants
@@ -21,6 +25,7 @@ import javax.inject.Named
 class ShopsViewModel
 @Inject constructor(
     val shopApiService: ShopApiService,
+    val application: Application,
     @Named("secure") val secureSharedPrefs: SharedPreferencesWrapper
 ) : ViewModel() {
     private val _shops = MutableLiveData<Event<List<Shop>>>()
@@ -60,11 +65,17 @@ class ShopsViewModel
     }
 
     fun inspectShop(shop: Shop) {
-        // todo
+        val intent = Intent(application, InspectionActivity::class.java)
+        intent.putExtra(ExtrasKeys.STAGE, Stage.INSPECTION)
+        intent.putExtra(ExtrasKeys.SHOP, shop)
+        _navigationEvents.postValue(Event(NavigationCommand.ToIntent(intent)))
     }
 
     fun leaveFeedback(shop: Shop) {
-        // todo
+        val intent = Intent(application, InspectionActivity::class.java)
+        intent.putExtra(ExtrasKeys.STAGE, Stage.FEEDBACK)
+        intent.putExtra(ExtrasKeys.SHOP, shop)
+        _navigationEvents.postValue(Event(NavigationCommand.ToIntent(intent)))
     }
 
     fun onScanQRClick(view: View) {
