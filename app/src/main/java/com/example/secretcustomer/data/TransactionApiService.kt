@@ -1,6 +1,6 @@
 package com.example.secretcustomer.data
 
-import retrofit2.Call
+import io.reactivex.Single
 import retrofit2.http.Body
 import retrofit2.http.Header
 import retrofit2.http.POST
@@ -10,11 +10,11 @@ interface TransactionApiService {
     fun increaseUserBalance(
         @Header("Authorization") auth: String,
         @Body userBalancePostData: Transaction
-    ): Call<UserDetails>
+    ): Single<UserDetails>
 
-    @POST("/balance/user/increase")
+    @POST("/balance/shop/increase")
     fun increaseShopBalance(
         @Header("Authorization") auth: String,
         @Body userBalancePostData: Transaction
-    ): Call<Shop>
+    ): Single<Shop>
 }

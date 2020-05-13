@@ -18,7 +18,7 @@ interface FeedbackApiService {
         @Path("id") id: Int,
         @Query("pageSize") pageSize: Int,
         @Query("offset") offset: Int
-    ): Single<Feedback>
+    ): Single<List<Feedback>>
 
     @GET("/feedback/customer/{id}")
     fun getPaginatedFeedbackByCustomerId(
@@ -26,7 +26,7 @@ interface FeedbackApiService {
         @Path("id") id: Int,
         @Query("pageSize") pageSize: Int,
         @Query("offset") offset: Int
-    ): Single<Feedback>
+    ): Single<List<Feedback>>
 
     @POST("/feedback")
     fun leaveFeedback(
@@ -46,5 +46,6 @@ data class FeedbackPostData(
     @SerializedName("shopId") val shopId: Int,
     @SerializedName("pros") val pros: String,
     @SerializedName("cons") val cons: String,
-    @SerializedName("additionalInfo") val additionalInfo: String?
+    @SerializedName("additionalInfo") val additionalInfo: String?,
+    @SerializedName("rating") val rating: Int
 )

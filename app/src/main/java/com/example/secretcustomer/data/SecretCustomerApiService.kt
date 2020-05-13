@@ -6,11 +6,11 @@ import retrofit2.http.*
 
 interface SecretCustomerApiService {
 
-    @GET("/secretCustomer/actions{id}")
+    @GET("/secretCustomer/actions/{id}")
     fun getActions(
         @Header("Authorization") auth: String,
         @Path("id") id: Int
-    ): Single<Action>
+    ): Single<List<Action>>
 
     @GET("/secretCustomer/session/active")
     fun getActiveSession(
@@ -47,7 +47,7 @@ interface SecretCustomerApiService {
         @Field("id") id: Int,
         @Field("shopId") shopId: Int,
         @Field("action") action: String
-    ): Single<Action>
+    ): Single<List<Action>>
 
     @PUT("/secretCustomer/session/nextStage/{sessionId}")
     fun nextSessionStage(

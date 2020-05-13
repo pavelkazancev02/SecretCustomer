@@ -11,7 +11,7 @@ interface ShopApiService {
         @Header("Authorization") auth: String,
         @Query("pageSize") pageSize: Int,
         @Query("offset") offset: Int
-    ): Single<Shop>
+    ): Single<List<Shop>>
 
     @GET("/shops/{id}")
     fun getShopById(
@@ -25,7 +25,7 @@ interface ShopApiService {
         @Path("id") id: Int,
         @Query("pageSize") pageSize: Int,
         @Query("offset") offset: Int
-    ): Single<Shop>
+    ): Single<List<Shop>>
 
     @POST("/shops")
     fun createShop(
@@ -47,7 +47,7 @@ interface ShopApiService {
     fun deleteShop(
         @Header("Authorization") auth: String,
         @Path("id") id: Int
-    ): Single<Shop>
+    ): Single<Unit>
 }
 
 data class ShopPostData(
