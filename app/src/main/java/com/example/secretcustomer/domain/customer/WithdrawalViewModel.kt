@@ -44,16 +44,17 @@ class WithdrawalViewModel
     }
 
     fun onWithdrawClick(view: View) {
-        // todo
-        _navigationEvents.value =
+        // ToDo???
+        _navigationEvents.postValue(
             Event(NavigationCommand.To(WithdrawCardInfoFragmentDirections.actionWithdrawCardInfoFragmentToWithdrawFinishFragment()))
+        )
     }
 
     fun onCancelClick(view: View) {
-        // todo
+        _navigationEvents.postValue(Event(NavigationCommand.Finish))
     }
 
     fun onFinishClick(view: View) {
-        // todo
+        _navigationEvents.postValue(Event(NavigationCommand.Finish))
     }
 }

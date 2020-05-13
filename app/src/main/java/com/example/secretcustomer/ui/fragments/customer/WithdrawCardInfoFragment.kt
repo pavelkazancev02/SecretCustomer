@@ -61,6 +61,10 @@ class WithdrawCardInfoFragment : Fragment() {
                         findNavController().navigate(navigationCommand.directions)
                     is NavigationCommand.ToIntent ->
                         startActivity(navigationCommand.intent)
+                    is NavigationCommand.Finish ->
+                        activity?.finish()
+                    else -> {
+                    }
                 }
             }
         })

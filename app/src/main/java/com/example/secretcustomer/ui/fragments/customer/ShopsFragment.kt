@@ -103,6 +103,8 @@ class ShopsFragment : Fragment() {
                         findNavController().navigate(navigationCommand.directions)
                     is NavigationCommand.ToIntent ->
                         startActivity(navigationCommand.intent)
+                    else -> {
+                    }
                 }
             }
         })

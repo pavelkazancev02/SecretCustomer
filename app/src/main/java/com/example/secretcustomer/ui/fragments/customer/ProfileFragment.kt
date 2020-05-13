@@ -61,6 +61,12 @@ class ProfileFragment : Fragment() {
                         findNavController().navigate(navigationCommand.directions)
                     is NavigationCommand.ToIntent ->
                         startActivity(navigationCommand.intent)
+                    is NavigationCommand.ToIntentWithFinish -> {
+                        startActivity(navigationCommand.intent)
+                        activity?.finish()
+                    }
+                    else -> {
+                    }
                 }
             }
         })

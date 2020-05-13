@@ -20,11 +20,11 @@ data class UserDetails(
     @SerializedName("balance")
     val balance: Float,
     @SerializedName("role")
-    val role: List<Roles>
+    val role: Role
 )
 
-data class Roles(
-    val Customer: String,
-    val ShopOwner: String,
-    val Admin: String
-)
+enum class Role(name: String) {
+    Customer("Customer"),
+    ShopOwner("ShopOwner"),
+    Admin("Admin")
+}

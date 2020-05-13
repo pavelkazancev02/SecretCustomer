@@ -45,6 +45,7 @@
     <string name="successful_registration">User is successfully registered</string>
     <string name="inspection_title">Inspection - Step %1$d of %2$d</string>
     <string name="task_number">Task %1$d:</string>
+    <string name="money_amount">You earned %1$.2f coins</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

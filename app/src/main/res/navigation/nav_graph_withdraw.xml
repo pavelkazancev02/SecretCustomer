@@ -14,6 +14,8 @@
         android:label="WithdrawCardInfoFragment">
         <action
             android:id="@+id/action_withdrawCardInfoFragment_to_withdrawFinishFragment"
-            app:destination="@id/withdrawFinishFragment" />
+            app:destination="@id/withdrawFinishFragment"
+            app:popUpTo="@id/withdrawFinishFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

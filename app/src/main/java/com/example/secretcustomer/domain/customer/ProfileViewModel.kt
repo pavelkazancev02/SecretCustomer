@@ -1,14 +1,22 @@
 package com.example.secretcustomer.domain.customer
 
+import android.app.Application
+import android.content.Intent
 import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.secretcustomer.data.UserApiService
+import com.example.secretcustomer.ui.activities.LoginActivity
+import com.example.secretcustomer.ui.activities.WithdrawActivity
 import com.example.secretcustomer.util.Event
 import com.example.secretcustomer.util.NavigationCommand
+import com.example.secretcustomer.util.constants.LoginConstants
 import com.example.secretcustomer.util.sharedpreferences.SharedPreferencesWrapper
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -16,6 +24,7 @@ import javax.inject.Named
 class ProfileViewModel
 @Inject constructor(
     val userApiService: UserApiService,
+    val application: Application,
     @Named("secure") val secureSharedPrefs: SharedPreferencesWrapper
 ) : ViewModel() {
     private val _username = MutableLiveData<String>()
@@ -27,8 +36,8 @@ class ProfileViewModel
     private val _phone = MutableLiveData<String>()
     val phone: LiveData<String> get() = _phone
 
-    private val _balance = MutableLiveData<String>()
-    val balance: LiveData<String> get() = _balance
+    private val _balance = MutableLiveData<Float>()
+    val balance: LiveData<Float> get() = _balance
 
     // LiveData для управления навигацией, так как она может совершаться только из ui.
     private val _navigationEvents = MutableLiveData<Event<NavigationCommand>>()
@@ -40,10 +49,23 @@ class ProfileViewModel
     private val disposables = CompositeDisposable()
 
     init {
-        _username.postValue("Andrey Pavlenko")
-        _email.postValue("test email")
-        _phone.postValue("test phone")
-        _balance.postValue("You earned 1 coin")
+        _showLoadingBar.postValue(Event(true))
+        secureSharedPrefs.getString(LoginConstants.TOKEN)?.let { token ->
+            disposables.add(userApiService.getUserInfo(token)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeBy(
+                    {},
+                    { response ->
+                        _showLoadingBar.postValue(Event(false))
+                        _username.value = "${response.firstName} ${response.lastName}"
+                        _email.postValue(response.email)
+                        _phone.postValue(response.phone)
+                        _balance.postValue(response.balance)
+                    }
+                )
+            )
+        }
     }
 
     override fun onCleared() {
@@ -52,10 +74,13 @@ class ProfileViewModel
     }
 
     fun onWithdrawAll(view: View) {
-        // todo
+        val intent = Intent(application, WithdrawActivity::class.java)
+        _navigationEvents.postValue(Event(NavigationCommand.ToIntent(intent)))
     }
 
     fun onLogout(view: View) {
-        // tod
+        secureSharedPrefs.clear(LoginConstants.TOKEN)
+        val intent = Intent(application, LoginActivity::class.java)
+        _navigationEvents.postValue(Event(NavigationCommand.ToIntentWithFinish(intent)))
     }
 }
