@@ -44,7 +44,7 @@ class FeedbackViewModel
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribeBy(
-                            {},
+                            { throw it },
                             { response ->
                                 _showLoadingBar.postValue(Event(false))
                                 _feedback.postValue(Event(response))

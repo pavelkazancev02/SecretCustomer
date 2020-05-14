@@ -1,7 +1,6 @@
 package com.example.secretcustomer.data
 
 import com.google.gson.annotations.SerializedName
-import java.util.*
 
 data class Feedback(
     @SerializedName("id")
@@ -17,7 +16,7 @@ data class Feedback(
     @SerializedName("additionalInfo")
     val additionalInfo: String?,
     @SerializedName("date")
-    val date: Date,
+    val date: String,
     @SerializedName("rating")
     val rating: Int
 )

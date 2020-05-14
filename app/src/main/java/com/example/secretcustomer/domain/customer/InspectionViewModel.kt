@@ -112,6 +112,7 @@ class InspectionViewModel
                 restoreState()
             }
         } else {
+            rememberState()
             saveResults()
         }
     }
@@ -157,13 +158,13 @@ class InspectionViewModel
     }
 
     private fun rememberState() {
-        val currentIndex =
+        val currentIndex = -1 +
             if (currentStage.value == Stage.FEEDBACK) currentStep.value!! + 1 else currentStep.value!!
         responses[currentIndex] = taskReport.value!!
     }
 
     private fun restoreState() {
-        val currentIndex =
+        val currentIndex = -1 +
             if (currentStage.value == Stage.FEEDBACK) currentStep.value!! + 1 else currentStep.value!!
         _taskReport.postValue(responses[currentIndex])
         if (currentStage.value == Stage.INSPECTION) {
@@ -172,6 +173,7 @@ class InspectionViewModel
     }
 
     private fun saveResults() {
+
         _showLoadingBar.postValue(Event(true))
         if (session != null) {
             secureSharedPrefs.getString(LoginConstants.TOKEN)?.let { token ->
@@ -185,7 +187,7 @@ class InspectionViewModel
                                 session!!.id,
                                 SessionPostData(
                                     shopId = shop.id,
-                                    pros = "",
+                                    pros = shop.address,
                                     cons = "",
                                     rating = rating.value!!.ordinal,
                                     additionalInfo = responses.last()
@@ -216,7 +218,7 @@ class InspectionViewModel
                         token,
                         FeedbackPostData(
                             shopId = shop.id,
-                            pros = "",
+                            pros = shop.address,
                             cons = "",
                             rating = rating.value!!.ordinal,
                             additionalInfo = responses.last()

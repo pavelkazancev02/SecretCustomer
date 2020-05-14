@@ -18,13 +18,15 @@
 
             <TextView
                 android:id="@+id/my_feedback_shop_name1"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 android:text="Бахетле"
                 android:textColor="@color/black1"
                 android:textSize="26dp"
+                app:layout_constraintEnd_toStartOf="@+id/my_feedback_shop_mood1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,11 +45,13 @@
 
             <TextView
                 android:id="@+id/my_feedback_shop_address1"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 android:text="Иннополис, ул. Спортивная, д. 104"
                 android:textSize="14dp"
+                app:layout_constraintEnd_toStartOf="@+id/my_feedback_shop_mood1"
                 app:layout_constraintStart_toStartOf="@+id/my_feedback_shop_name1"
                 app:layout_constraintTop_toBottomOf="@+id/my_feedback_shop_name1" />
 
@@ -64,11 +68,11 @@
                 android:id="@+id/my_feedback_shop_fb1"
                 android:layout_width="357dp"
                 android:layout_height="29dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:text="Quite good but not the best shop in the city..."
                 android:textSize="16dp"
                 app:layout_constraintStart_toStartOf="@+id/my_feedback_shop_address1"
-                app:layout_constraintTop_toBottomOf="@+id/my_feedback_shop_mood1" />
+                app:layout_constraintTop_toBottomOf="@+id/my_feedback_shop_address1" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

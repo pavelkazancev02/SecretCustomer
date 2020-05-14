@@ -27,9 +27,14 @@ class CustomerFeedbackAdapter(
             feedback: Feedback
         ) {
             title.text = feedback.shopName
-            address.text = "" // todo? how?
+            address.text = feedback.pros
             feedbackText.text = feedback.additionalInfo
-            // todo: img mood
+            when (feedback.rating) {
+                1 -> moodImg.setImageResource(R.drawable.mood1_75dp)
+                2 -> moodImg.setImageResource(R.drawable.mood2_75dp)
+                3 -> moodImg.setImageResource(R.drawable.mood3_75dp)
+                4 -> moodImg.setImageResource(R.drawable.mood4_75dp)
+            }
         }
     }
 
