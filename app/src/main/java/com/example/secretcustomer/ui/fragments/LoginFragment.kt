@@ -88,5 +88,17 @@ class LoginFragment: Fragment() {
                 }
             }
         })
+
+        viewModel.blockButtons.observe(viewLifecycleOwner, Observer { blockEvent ->
+            blockEvent.getContentIfNotHandled()?.let { block ->
+                if (block) {
+                    binding.loginLoginBtn.isClickable = false
+                    binding.loginCreateBtn.isClickable = false
+                } else {
+                    binding.loginLoginBtn.isClickable = true
+                    binding.loginCreateBtn.isClickable = true
+                }
+            }
+        })
     }
 }

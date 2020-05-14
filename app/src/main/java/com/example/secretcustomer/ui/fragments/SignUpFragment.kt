@@ -86,5 +86,17 @@ class SignUpFragment : Fragment() {
                 }
             }
         })
+
+        viewModel.blockButtons.observe(viewLifecycleOwner, Observer { blockEvent ->
+            blockEvent.getContentIfNotHandled()?.let { block ->
+                if (block) {
+                    binding.registerCreateBtn.isClickable = false
+                    binding.registerBackBtn.isClickable = false
+                } else {
+                    binding.registerCreateBtn.isClickable = true
+                    binding.registerBackBtn.isClickable = true
+                }
+            }
+        })
     }
 }

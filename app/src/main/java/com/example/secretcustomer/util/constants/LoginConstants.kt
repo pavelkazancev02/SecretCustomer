@@ -6,4 +6,6 @@ object LoginConstants {
     val ROLE = "role"
     val USER_ID = "user_id"
     val TOKEN_HEADER = "Authorization"
+    val SAVED_EMAIL = "login"
+    val SAVED_PASSWORD = "password"
 }
