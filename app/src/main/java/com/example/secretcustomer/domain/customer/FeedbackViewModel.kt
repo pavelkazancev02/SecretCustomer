@@ -22,8 +22,8 @@ class FeedbackViewModel
     val feedbackApiService: FeedbackApiService,
     @Named("secure") val secureSharedPrefs: SharedPreferencesWrapper
 ) : ViewModel() {
-    private val _feedback = MutableLiveData<Event<List<Feedback>>>()
-    val feedback: LiveData<Event<List<Feedback>>> get() = _feedback
+    private val _feedback = MutableLiveData<List<Feedback>>()
+    val feedback: LiveData<List<Feedback>> get() = _feedback
 
     // LiveData для управления навигацией, так как она может совершаться только из ui.
     private val _navigationEvents = MutableLiveData<Event<NavigationCommand>>()
@@ -47,7 +47,7 @@ class FeedbackViewModel
                             { throw it },
                             { response ->
                                 _showLoadingBar.postValue(Event(false))
-                                _feedback.postValue(Event(response))
+                                _feedback.postValue(response)
                             }
                     )
                 )
