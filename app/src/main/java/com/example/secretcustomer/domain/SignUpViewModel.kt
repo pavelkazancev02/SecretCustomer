@@ -1,5 +1,6 @@
 package com.example.secretcustomer.domain
 
+import android.telephony.PhoneNumberUtils
 import android.util.Log
 import android.util.Patterns
 import android.view.View
@@ -69,11 +70,12 @@ class SignUpViewModel
             _password.value.isNullOrEmpty() -> {
                 _errorId.value = Event(R.string.no_password)
             }
-            !_phone.value.isNullOrEmpty() ->
-                if (!Patterns.PHONE.matcher(phone.value!!).find())
-                    _errorId.value = Event(R.string.incorrect_phone_pattern)
             else -> {
-                registerUser()
+                if (!_phone.value.isNullOrEmpty() && !PhoneNumberUtils.isGlobalPhoneNumber(_phone.value!!)) {
+                    _errorId.value = Event(R.string.incorrect_phone_pattern)
+                } else {
+                    registerUser()
+                }
             }
         }
     }
