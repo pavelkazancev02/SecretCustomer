@@ -8,18 +8,19 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.secretcustomer.R
 import com.example.secretcustomer.data.Shop
+import com.example.secretcustomer.data.ShopWithAvailability
 import com.example.secretcustomer.util.OnButtonClickListener
 import com.google.android.material.button.MaterialButton
 
 class CustomerShopsAdapter(
     private val context: Context,
-    private val shops: List<Shop>,
+    private val shops: List<ShopWithAvailability>,
     private val inspectClickListener: OnButtonClickListener<Shop>,
     private val leaveFeedbackClickListener: OnButtonClickListener<Shop>
 ) :
     RecyclerView.Adapter<CustomerShopsAdapter.ShopCardViewHolder>() {
 
-    class ShopCardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ShopCardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val title = itemView.findViewById<TextView>(R.id.shops_shop_name1)
         private val address = itemView.findViewById<TextView>(R.id.shops_shop_address1)
         private val inspectBtn = itemView.findViewById<MaterialButton>(R.id.shops_inspect_btn1)
@@ -28,17 +29,21 @@ class CustomerShopsAdapter(
 
         fun bind(
             context: Context,
-            shop: Shop,
+            shopObj: ShopWithAvailability,
             inspectClickListener: OnButtonClickListener<Shop>,
             leaveFeedbackClickListener: OnButtonClickListener<Shop>
         ) {
-            title.text = shop.name
-            address.text = shop.address
-            inspectBtn.setOnClickListener {
-                inspectClickListener.onButtonClicked(shop)
+            title.text = shopObj.shop.name
+            address.text = shopObj.shop.address
+            if (shopObj.isSessionAvailable) {
+                inspectBtn.setOnClickListener {
+                    inspectClickListener.onButtonClicked(shopObj.shop)
+                }
+            } else {
+                inspectBtn.visibility = View.GONE
             }
             leaveFeedbackBtn.setOnClickListener {
-                leaveFeedbackClickListener.onButtonClicked(shop)
+                leaveFeedbackClickListener.onButtonClicked(shopObj.shop)
             }
         }
     }

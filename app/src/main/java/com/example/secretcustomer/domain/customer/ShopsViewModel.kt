@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.secretcustomer.data.Shop
 import com.example.secretcustomer.data.ShopApiService
+import com.example.secretcustomer.data.ShopWithAvailability
 import com.example.secretcustomer.ui.activities.ExtrasKeys
 import com.example.secretcustomer.ui.activities.InspectionActivity
 import com.example.secretcustomer.util.Event
@@ -28,8 +29,8 @@ class ShopsViewModel
     val application: Application,
     @Named("secure") val secureSharedPrefs: SharedPreferencesWrapper
 ) : ViewModel() {
-    private val _shops = MutableLiveData<Event<List<Shop>>>()
-    val shops: LiveData<Event<List<Shop>>> get() = _shops
+    private val _shops = MutableLiveData<List<ShopWithAvailability>>()
+    val shops: LiveData<List<ShopWithAvailability>> get() = _shops
 
     // LiveData для управления навигацией, так как она может совершаться только из ui.
     private val _navigationEvents = MutableLiveData<Event<NavigationCommand>>()
@@ -52,7 +53,7 @@ class ShopsViewModel
                         {},
                         { response ->
                             _showLoadingBar.postValue(Event(false))
-                            _shops.postValue(Event(response))
+                            _shops.postValue(response)
                         }
                 )
             )

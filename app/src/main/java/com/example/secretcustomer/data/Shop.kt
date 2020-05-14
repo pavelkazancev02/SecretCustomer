@@ -17,3 +17,10 @@ data class Shop(
     @SerializedName("balance")
     val balance: Int
 ) : Parcelable
+
+data class ShopWithAvailability(
+    @SerializedName("shop")
+    val shop: Shop,
+    @SerializedName("isAvailable")
+    val isSessionAvailable: Boolean
+)
