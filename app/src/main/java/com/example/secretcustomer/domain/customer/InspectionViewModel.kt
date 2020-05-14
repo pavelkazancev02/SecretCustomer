@@ -64,6 +64,7 @@ class InspectionViewModel
         _currentStage.postValue(Stage.INSPECTION)
         _currentStep.postValue(1)
         _totalSteps.postValue(1)
+        _taskReport.postValue("")
         responses = Array(2) { "" }
     }
 
@@ -104,11 +105,11 @@ class InspectionViewModel
         if (currentStage.value == Stage.INSPECTION) {
             if (currentStep.value == totalSteps.value) {
                 rememberState()
-                _currentStage.postValue(Stage.FEEDBACK)
+                _currentStage.value = Stage.FEEDBACK
                 restoreState()
             } else {
                 rememberState()
-                _currentStep.postValue(currentStep.value!! + 1)
+                _currentStep.value = currentStep.value!! + 1
                 restoreState()
             }
         } else {
@@ -124,12 +125,12 @@ class InspectionViewModel
             }
             currentStage.value == Stage.FEEDBACK -> {
                 rememberState()
-                _currentStage.postValue(Stage.INSPECTION)
+                _currentStage.value = Stage.INSPECTION
                 restoreState()
             }
             else -> {
                 rememberState()
-                _currentStep.postValue(currentStep.value!! + 1)
+                _currentStep.value = currentStep.value!! - 1
                 restoreState()
             }
         }
@@ -189,7 +190,8 @@ class InspectionViewModel
                                     shopId = shop.id,
                                     pros = shop.address,
                                     cons = "",
-                                    rating = rating.value!!.ordinal,
+                                    //todo разобраться как нормально получить значение енама
+                                    rating = rating.value!!.ordinal + 1,
                                     additionalInfo = responses.last()
                                 )
                             )
@@ -220,7 +222,8 @@ class InspectionViewModel
                             shopId = shop.id,
                             pros = shop.address,
                             cons = "",
-                            rating = rating.value!!.ordinal,
+                            //todo разобраться как нормально получить значение енама
+                            rating = rating.value!!.ordinal + 1,
                             additionalInfo = responses.last()
                         )
                     )
@@ -250,7 +253,7 @@ enum class Stage(name: String) {
     FEEDBACK("FEEDBACK")
 }
 
-enum class Rating(rating: Int) {
+enum class Rating(value: Int) {
     WORST(1),
     BAD(2),
     GOOD(3),

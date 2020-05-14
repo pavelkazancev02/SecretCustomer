@@ -1,7 +1,6 @@
 package com.example.secretcustomer.data
 
 import com.google.gson.annotations.SerializedName
-import java.util.*
 
 data class Session(
     @SerializedName("id")
@@ -13,7 +12,7 @@ data class Session(
     @SerializedName("stage")
     val stage: Int,
     @SerializedName("started")
-    val started: Date,
+    val started: String, //todo: разобраться с датой
     @SerializedName("expiresAt")
-    val expiresAt: Date
+    val expiresAt: String //todo: разобраться с датой
 )
