@@ -46,6 +46,8 @@ class SignUpViewModel
 
     private val _showLoadingBar = MutableLiveData<Event<Boolean>>()
     val showLoadingBar: LiveData<Event<Boolean>> get() = _showLoadingBar
+    private val _blockButtons = MutableLiveData<Event<Boolean>>()
+    val blockButtons: LiveData<Event<Boolean>> get() = _blockButtons
 
 
     private val disposables = CompositeDisposable()
@@ -82,6 +84,7 @@ class SignUpViewModel
 
     private fun registerUser() {
         _showLoadingBar.value = Event(true)
+        _blockButtons.value = Event(true)
         val userData = CreateUserPostData(
             _firstName.value!!,
             lastName.value!!,
@@ -96,6 +99,7 @@ class SignUpViewModel
             .subscribeBy(
                 { error ->
                     _showLoadingBar.postValue(Event(false))
+                    _blockButtons.postValue(Event(false))
                     Log.e("Login error", error.message)
                     when (error) {
                         is HttpException ->
@@ -108,6 +112,7 @@ class SignUpViewModel
                 },
                 {
                     _showLoadingBar.postValue(Event(false))
+                    _blockButtons.postValue(Event(false))
                     _errorId.postValue(Event(R.string.successful_registration))
                     _navigationEvents.postValue(Event(NavigationCommand.Back))
                 }

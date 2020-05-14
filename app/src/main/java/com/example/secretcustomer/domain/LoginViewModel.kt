@@ -51,8 +51,20 @@ class LoginViewModel
 
     private val _showLoadingBar = MutableLiveData<Event<Boolean>>()
     val showLoadingBar: LiveData<Event<Boolean>> get() = _showLoadingBar
+    private val _blockButtons = MutableLiveData<Event<Boolean>>()
+    val blockButtons: LiveData<Event<Boolean>> get() = _blockButtons
 
     private val disposables = CompositeDisposable()
+
+    init {
+        val email = secureSharedPrefs.getString(LoginConstants.SAVED_EMAIL)
+        val password = secureSharedPrefs.getString(LoginConstants.SAVED_PASSWORD)
+        if (!email.isNullOrEmpty() && !password.isNullOrEmpty()) {
+            _email.value = email
+            _password.value = password
+            loginUser()
+        }
+    }
 
     override fun onCleared() {
         super.onCleared()
@@ -80,6 +92,7 @@ class LoginViewModel
 
     private fun loginUser() {
         _showLoadingBar.value = Event(true)
+        _blockButtons.value = Event(true)
         val userData = LoginPostData(_email.value!!, password.value!!)
         disposables.add(userApiService.logUser(userData)
             .subscribeOn(Schedulers.io())
@@ -87,16 +100,18 @@ class LoginViewModel
             .subscribeBy(
                 {},
                 { response ->
+                    _showLoadingBar.postValue(Event(false))
+                    _blockButtons.postValue(Event(false))
                     if (response.isSuccessful) {
                         val token = response.headers().get(LoginConstants.TOKEN_HEADER)
+                        secureSharedPrefs.set(LoginConstants.SAVED_EMAIL, _email.value!!)
+                        secureSharedPrefs.set(LoginConstants.SAVED_PASSWORD, _password.value!!)
                         secureSharedPrefs.set(LoginConstants.TOKEN, token!!)
-                        _showLoadingBar.postValue(Event(false))
                         // TODO перейти на главную активити
                         //_navigationEvents.postValue(NavigationCommand.ToIntent())
                     } else {
                         // В асинхронищине в LiveData нужно постить значение, а не просто сетить, так как
                         // на другом треде
-                        _showLoadingBar.postValue(Event(false))
                         Log.e("Login error", response.message())
                         when (response.code()) {
                             409 -> _errorId.postValue(Event(R.string.wrong_login_data))
