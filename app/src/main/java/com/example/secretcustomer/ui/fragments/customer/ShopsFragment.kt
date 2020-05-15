@@ -16,6 +16,7 @@ import com.example.secretcustomer.R
 import com.example.secretcustomer.SecretCustomerApplication
 import com.example.secretcustomer.adapters.CustomerShopsAdapter
 import com.example.secretcustomer.data.Shop
+import com.example.secretcustomer.data.ShopWithAvailability
 import com.example.secretcustomer.databinding.FragmentShopsBinding
 import com.example.secretcustomer.di.ViewModelFactory
 import com.example.secretcustomer.domain.customer.ShopsViewModel
@@ -28,7 +29,7 @@ class ShopsFragment : Fragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
     private lateinit var viewModel: ShopsViewModel
-    private val shopsList: ArrayList<Shop> = ArrayList()
+    private val shopsList: ArrayList<ShopWithAvailability> = ArrayList()
     private lateinit var shopsAdapter: CustomerShopsAdapter
     private lateinit var shopsRecyclerView: RecyclerView
     private lateinit var binding: FragmentShopsBinding
@@ -86,12 +87,10 @@ class ShopsFragment : Fragment() {
     }
 
     private fun observeViewModel() {
-        viewModel.shops.observe(viewLifecycleOwner, Observer { shopsEvent ->
-            shopsEvent.getContentIfNotHandled()?.let { shops ->
+        viewModel.shops.observe(viewLifecycleOwner, Observer { shops ->
                 shopsList.clear()
                 shopsList.addAll(shops)
                 shopsAdapter.notifyDataSetChanged()
-            }
         })
 
         viewModel.navigationEvent.observe(viewLifecycleOwner, Observer { navEvent ->

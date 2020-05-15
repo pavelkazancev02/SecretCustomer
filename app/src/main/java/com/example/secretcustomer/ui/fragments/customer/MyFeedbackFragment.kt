@@ -70,12 +70,10 @@ class MyFeedbackFragment : Fragment() {
     }
 
     private fun observeViewModel() {
-        viewModel.feedback.observe(viewLifecycleOwner, Observer { feedbackEvent ->
-            feedbackEvent.getContentIfNotHandled()?.let { shops ->
+        viewModel.feedback.observe(viewLifecycleOwner, Observer { feedback ->
                 feedbackList.clear()
-                feedbackList.addAll(shops)
+                feedbackList.addAll(feedback)
                 feedbackAdapter.notifyDataSetChanged()
-            }
         })
 
         viewModel.navigationEvent.observe(viewLifecycleOwner, Observer { navEvent ->

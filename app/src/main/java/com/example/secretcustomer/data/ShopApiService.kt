@@ -11,7 +11,7 @@ interface ShopApiService {
         @Header("Authorization") auth: String,
         @Query("pageSize") pageSize: Int,
         @Query("offset") offset: Int
-    ): Single<List<Shop>>
+    ): Single<List<ShopWithAvailability>>
 
     @GET("/shops/{id}")
     fun getShopById(
