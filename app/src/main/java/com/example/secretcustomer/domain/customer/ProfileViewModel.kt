@@ -80,6 +80,8 @@ class ProfileViewModel
 
     fun onLogout(view: View) {
         secureSharedPrefs.clear(LoginConstants.TOKEN)
+        secureSharedPrefs.clear(LoginConstants.SAVED_EMAIL)
+        secureSharedPrefs.clear(LoginConstants.SAVED_PASSWORD)
         val intent = Intent(application, LoginActivity::class.java)
         _navigationEvents.postValue(Event(NavigationCommand.ToIntentWithFinish(intent)))
     }
