@@ -18,6 +18,55 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/buttons_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@+id/shops_shop_name1"
+                app:layout_constraintTop_toBottomOf="@+id/shops_shop_address1">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/shops_inspect_btn1"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+
+                    android:text="@string/inspect"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    android:theme="@style/Theme.MaterialComponents"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeWidth="0dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/shops_leave_feedback_btn1"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@android:color/transparent"
+
+                    android:paddingLeft="4dp"
+                    android:paddingRight="2dp"
+
+                    android:text="@string/leave_feedback"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16dp"
+                    android:theme="@style/Theme.MaterialComponents"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/shops_inspect_btn1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeWidth="0dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
             <TextView
                 android:id="@+id/shops_shop_name1"
                 android:layout_width="0dp"
@@ -32,44 +81,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/shops_inspect_btn1"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:background="@android:color/transparent"
-                android:paddingLeft="0dp"
-
-                android:text="@string/inspect"
-                android:textColor="@color/colorPrimary"
-
-                android:textSize="16dp"
-                android:theme="@style/Theme.MaterialComponents"
-                app:layout_constraintStart_toStartOf="@+id/shops_shop_name1"
-                app:layout_constraintTop_toBottomOf="@+id/shops_shop_address1"
-                app:strokeWidth="0dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/shops_leave_feedback_btn1"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="4dp"
-                android:background="@android:color/transparent"
-
-                android:paddingLeft="0dp"
-                android:paddingRight="0dp"
-
-                android:text="@string/leave_feedback"
-                android:textColor="@color/colorPrimary"
-                android:textSize="16dp"
-                android:theme="@style/Theme.MaterialComponents"
-                app:layout_constraintStart_toEndOf="@+id/shops_inspect_btn1"
-                app:layout_constraintTop_toBottomOf="@+id/shops_shop_address1"
-                app:strokeWidth="0dp" />
-
             <View
                 android:id="@+id/divider"
                 android:layout_width="match_parent"
@@ -81,7 +92,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/shops_inspect_btn1" />
+                app:layout_constraintTop_toBottomOf="@+id/buttons_container" />
 
             <TextView
                 android:id="@+id/shops_shop_address1"

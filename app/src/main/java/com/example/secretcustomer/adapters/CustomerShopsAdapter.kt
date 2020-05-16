@@ -5,12 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.recyclerview.widget.RecyclerView
 import com.example.secretcustomer.R
 import com.example.secretcustomer.data.Shop
 import com.example.secretcustomer.data.ShopWithAvailability
 import com.example.secretcustomer.util.OnButtonClickListener
 import com.google.android.material.button.MaterialButton
+
 
 class CustomerShopsAdapter(
     private val context: Context,
@@ -26,6 +29,8 @@ class CustomerShopsAdapter(
         private val inspectBtn = itemView.findViewById<MaterialButton>(R.id.shops_inspect_btn1)
         private val leaveFeedbackBtn =
             itemView.findViewById<MaterialButton>(R.id.shops_leave_feedback_btn1)
+        private val buttonsContainer =
+            itemView.findViewById<ConstraintLayout>(R.id.buttons_container)
 
         fun bind(
             context: Context,
@@ -40,7 +45,20 @@ class CustomerShopsAdapter(
                     inspectClickListener.onButtonClicked(shopObj.shop)
                 }
             } else {
-                inspectBtn.visibility = View.GONE
+                val constraintSet = ConstraintSet()
+                constraintSet.clone(buttonsContainer)
+                constraintSet.apply {
+                    setVisibility(inspectBtn.id, View.GONE)
+                    clear(leaveFeedbackBtn.id, ConstraintSet.START)
+                    connect(
+                        leaveFeedbackBtn.id,
+                        ConstraintSet.START,
+                        buttonsContainer.id,
+                        ConstraintSet.START,
+                        0
+                    )
+                }
+                constraintSet.applyTo(buttonsContainer)
             }
             leaveFeedbackBtn.setOnClickListener {
                 leaveFeedbackClickListener.onButtonClicked(shopObj.shop)
