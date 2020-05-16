@@ -15,279 +15,285 @@
         <import type="android.view.View" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FFFFFF">
-
-        <TextView
-            android:id="@+id/shops_inspection_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="20dp"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:text="@{viewModel.currentStage == Stage.INSPECTION ? @string/inspection_title(viewModel.currentStep, viewModel.totalSteps) : @string/leave_feedback}"
-            android:textColor="@color/black1"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-            android:id="@+id/divider1"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="24dp"
-            android:background="@color/dividerColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/shops_inspection_title" />
-
-        <View
-            android:id="@+id/divider2"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="24dp"
-            android:background="@color/dividerColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/shops_inspection_shop_address" />
-
-        <TextView
-            android:id="@+id/shops_inspection_shop_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:text="@{viewModel.shopTitle}"
-            android:textColor="@color/black1"
-            android:textSize="26sp"
-            app:layout_constraintEnd_toStartOf="@+id/shops_inspection_shop_logo"
-            app:layout_constraintStart_toStartOf="@+id/shops_inspection_title"
-            app:layout_constraintTop_toBottomOf="@+id/divider1" />
-
-        <TextView
-            android:id="@+id/shops_inspection_shop_address"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:text="@{viewModel.shopAddress}"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/shops_inspection_shop_logo"
-            app:layout_constraintStart_toStartOf="@+id/shops_inspection_title"
-            app:layout_constraintTop_toBottomOf="@+id/shops_inspection_shop_name" />
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/action_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/divider2">
+            android:background="#FFFFFF">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/task_container"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/shops_inspection_title"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:visibility="@{viewModel.currentStage == Stage.INSPECTION ? View.VISIBLE : View.GONE}"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text="@{viewModel.currentStage == Stage.INSPECTION ? @string/inspection_title(viewModel.currentStep, viewModel.totalSteps) : @string/leave_feedback}"
+                android:textColor="@color/black1"
+                android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/shops_inspection_task_text"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="20dp"
-                    android:text="@{viewModel.taskText}"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/shops_inspection_task_number"
-                    app:layout_constraintTop_toTopOf="@+id/shops_inspection_task_number" />
+            <View
+                android:id="@+id/divider1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="24dp"
+                android:background="@color/dividerColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shops_inspection_title" />
 
-                <TextView
-                    android:id="@+id/shops_inspection_task_number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:text="@{@string/task_number(viewModel.currentStep)}"
-                    android:textSize="18sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="24dp"
+                android:background="@color/dividerColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shops_inspection_shop_address" />
 
+            <TextView
+                android:id="@+id/shops_inspection_shop_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@{viewModel.shopTitle}"
+                android:textColor="@color/black1"
+                android:textSize="26sp"
+                app:layout_constraintEnd_toStartOf="@+id/shops_inspection_shop_logo"
+                app:layout_constraintStart_toStartOf="@+id/shops_inspection_title"
+                app:layout_constraintTop_toBottomOf="@+id/divider1" />
+
+            <TextView
+                android:id="@+id/shops_inspection_shop_address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="@{viewModel.shopAddress}"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/shops_inspection_shop_logo"
+                app:layout_constraintStart_toStartOf="@+id/shops_inspection_title"
+                app:layout_constraintTop_toBottomOf="@+id/shops_inspection_shop_name" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/rating_container"
+                android:id="@+id/action_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="@{viewModel.currentStage == Stage.FEEDBACK ? View.VISIBLE : View.GONE}"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/divider2">
 
-                <ImageButton
-                    android:id="@+id/shops_feedback_mood3"
-                    android:layout_width="wrap_content"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/task_container"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:clickable="true"
-                    android:contentDescription="@string/good"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:onClick="@{() -> viewModel.selectRating(Rating.GOOD)}"
-                    android:src="@{viewModel.rating == Rating.GOOD ? @drawable/mood3_75dp_selected : @drawable/mood3_75dp}"
-                    app:layout_constraintEnd_toStartOf="@+id/shops_feedback_mood4"
-                    app:layout_constraintStart_toEndOf="@+id/shops_feedback_mood2"
-                    app:layout_constraintTop_toTopOf="@+id/shops_feedback_mood2" />
-
-                <ImageButton
-                    android:id="@+id/shops_feedback_mood2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:clickable="true"
-                    android:contentDescription="@string/bad"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:onClick="@{() -> viewModel.selectRating(Rating.BAD)}"
-                    android:src="@{viewModel.rating == Rating.BAD ? @drawable/mood2_75dp_selected : @drawable/mood2_75dp}"
-                    app:layout_constraintEnd_toStartOf="@+id/shops_feedback_mood3"
-                    app:layout_constraintStart_toEndOf="@+id/shops_feedback_mood1"
-                    app:layout_constraintTop_toTopOf="@+id/shops_feedback_mood1" />
-
-                <ImageButton
-                    android:id="@+id/shops_feedback_mood1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:background="@android:color/transparent"
-                    android:clickable="true"
-                    android:contentDescription="@string/worst"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:onClick="@{() -> viewModel.selectRating(Rating.WORST)}"
-                    android:src="@{viewModel.rating == Rating.WORST ? @drawable/mood1_75dp_selected : @drawable/mood1_75dp}"
+                    android:visibility="@{viewModel.currentStage == Stage.INSPECTION ? View.VISIBLE : View.GONE}"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageButton
-                    android:id="@+id/shops_feedback_mood4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:background="@android:color/transparent"
-                    android:clickable="true"
-                    android:contentDescription="@string/best"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:onClick="@{() -> viewModel.selectRating(Rating.BEST)}"
-                    android:src="@{viewModel.rating == Rating.BEST ? @drawable/mood4_75dp_selected : @drawable/mood4_75dp}"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/shops_inspection_task_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="20dp"
+                        android:text="@{viewModel.taskText}"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/shops_inspection_task_number"
+                        app:layout_constraintTop_toTopOf="@+id/shops_inspection_task_number" />
+
+                    <TextView
+                        android:id="@+id/shops_inspection_task_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:text="@{@string/task_number(viewModel.currentStep)}"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/rating_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.currentStage == Stage.FEEDBACK ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageButton
+                        android:id="@+id/shops_feedback_mood3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:clickable="true"
+                        android:contentDescription="@string/good"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:onClick="@{() -> viewModel.selectRating(Rating.GOOD)}"
+                        android:src="@{viewModel.rating == Rating.GOOD ? @drawable/mood3_75dp_selected : @drawable/mood3_75dp}"
+                        app:layout_constraintEnd_toStartOf="@+id/shops_feedback_mood4"
+                        app:layout_constraintStart_toEndOf="@+id/shops_feedback_mood2"
+                        app:layout_constraintTop_toTopOf="@+id/shops_feedback_mood2" />
+
+                    <ImageButton
+                        android:id="@+id/shops_feedback_mood2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:clickable="true"
+                        android:contentDescription="@string/bad"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:onClick="@{() -> viewModel.selectRating(Rating.BAD)}"
+                        android:src="@{viewModel.rating == Rating.BAD ? @drawable/mood2_75dp_selected : @drawable/mood2_75dp}"
+                        app:layout_constraintEnd_toStartOf="@+id/shops_feedback_mood3"
+                        app:layout_constraintStart_toEndOf="@+id/shops_feedback_mood1"
+                        app:layout_constraintTop_toTopOf="@+id/shops_feedback_mood1" />
+
+                    <ImageButton
+                        android:id="@+id/shops_feedback_mood1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:background="@android:color/transparent"
+                        android:clickable="true"
+                        android:contentDescription="@string/worst"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:onClick="@{() -> viewModel.selectRating(Rating.WORST)}"
+                        android:src="@{viewModel.rating == Rating.WORST ? @drawable/mood1_75dp_selected : @drawable/mood1_75dp}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageButton
+                        android:id="@+id/shops_feedback_mood4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:background="@android:color/transparent"
+                        android:clickable="true"
+                        android:contentDescription="@string/best"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:onClick="@{() -> viewModel.selectRating(Rating.BEST)}"
+                        android:src="@{viewModel.rating == Rating.BEST ? @drawable/mood4_75dp_selected : @drawable/mood4_75dp}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/shops_inspection_shop_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:contentDescription="@string/shop"
+                app:layout_constraintEnd_toEndOf="@+id/divider1"
+                app:layout_constraintTop_toBottomOf="@+id/divider1"
+                app:srcCompat="@drawable/shop_icon_75dp" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/shops_inspection_text_field"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="20dp"
+                app:boxStrokeColor="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/action_container">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/shops_inspection_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:addTextChangedListener="@{viewModel.taskReportWatcher}"
+                    android:hint="@{viewModel.currentStage == Stage.INSPECTION ? @string/report_hint : @string/feedback_hint}"
+                    android:inputType="textMultiLine"
+                    android:paddingBottom="150dp"
+                    android:text="@{viewModel.taskReport}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/shops_inspection_next_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:onClick="@{viewModel::onNextStep}"
+                android:text="@{viewModel.currentStage == Stage.FEEDBACK ? @string/save : @string/next}"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+
+                android:theme="@style/Theme.MaterialComponents"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shops_inspection_text_field" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/shops_inspection_cancel_btn"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:background="@android:color/transparent"
+                android:onClick="@{viewModel::onPreviousStep}"
+                android:text="@{viewModel.currentStep == 1 ? @string/cancel : @string/goback}"
+                android:textColor="@color/cancelColor"
+                android:textSize="16sp"
+
+                android:theme="@style/Theme.MaterialComponents"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shops_inspection_next_btn"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="1dp" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider1" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <ImageView
-            android:id="@+id/shops_inspection_shop_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:contentDescription="@string/shop"
-            app:layout_constraintEnd_toEndOf="@+id/divider1"
-            app:layout_constraintTop_toBottomOf="@+id/divider1"
-            app:srcCompat="@drawable/shop_icon_75dp" />
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/shops_inspection_text_field"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="20dp"
-            app:boxStrokeColor="@color/colorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/action_container">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/shops_inspection_edit_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:addTextChangedListener="@{viewModel.taskReportWatcher}"
-                android:hint="@{viewModel.currentStage == Stage.INSPECTION ? @string/report_hint : @string/feedback_hint}"
-                android:inputType="textMultiLine"
-                android:paddingBottom="150dp"
-                android:text="@{viewModel.taskReport}" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/shops_inspection_next_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="20dp"
-            android:backgroundTint="@color/colorPrimary"
-            android:onClick="@{viewModel::onNextStep}"
-            android:text="@{viewModel.currentStage == Stage.FEEDBACK ? @string/save : @string/next}"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-
-            android:theme="@style/Theme.MaterialComponents"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/shops_inspection_text_field" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/shops_inspection_cancel_btn"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="20dp"
-            android:background="@android:color/transparent"
-            android:onClick="@{viewModel::onPreviousStep}"
-            android:text="@{viewModel.currentStep == 1 ? @string/cancel : @string/goback}"
-            android:textColor="@color/cancelColor"
-            android:textSize="16sp"
-
-            android:theme="@style/Theme.MaterialComponents"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/shops_inspection_next_btn"
-            app:strokeColor="@color/colorPrimary"
-            app:strokeWidth="1dp" />
-
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divider1" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </layout>

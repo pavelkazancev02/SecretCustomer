@@ -55,4 +55,6 @@
     <string name="worst">Worst</string>
     <string name="best">Best</string>
     <string name="shop">Shop</string>
+    <string name="exit">Exit</string>
+    <string name="smile">Smile</string>
 </resources>
