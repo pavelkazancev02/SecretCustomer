@@ -150,7 +150,7 @@ class InspectionViewModel
                     { response ->
                         actions = response
                         _totalSteps.postValue(actions.size)
-                        _taskText.postValue(actions[1].action)
+                        _taskText.postValue(actions[0].action)
                         _showLoadingBar.postValue(Event(false))
                         responses = Array(actions.size + 1) { "" }
                     }
