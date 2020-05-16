@@ -43,7 +43,7 @@
             android:fontFamily="sans-serif-condensed-medium"
             android:text="@string/shops"
             android:textColor="@color/black1"
-            android:textSize="24dp"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -59,6 +59,8 @@
             app:layout_constraintBottom_toBottomOf="@+id/shops_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/shops_title"
+            android:contentDescription="@string/scan_qr_code"
+            android:focusable="true"
             app:srcCompat="@drawable/qr_24dp" />
 
         <View

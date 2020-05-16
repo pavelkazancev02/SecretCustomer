@@ -48,7 +48,6 @@
     <string name="money_amount">You earned %1$.2f coins</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="divider">Divider</string>
     <string name="good">Good</string>
     <string name="bad">Bad</string>
@@ -57,4 +56,11 @@
     <string name="shop">Shop</string>
     <string name="exit">Exit</string>
     <string name="smile">Smile</string>
+    <string name="shop_name_example">Бахетле</string>
+    <string name="shop_address_example">Иннополис, ул. Спортивная, д. 104</string>
+    <string name="feedback_example">Quite good but not the best shop in the city…</string>
+    <string name="grade">Grade</string>
+    <string name="shop_icon">Shop Icon</string>
+    <string name="scan_qr_code">Scan QR Code</string>
+    <string name="feedback">Feedback</string>
 </resources>

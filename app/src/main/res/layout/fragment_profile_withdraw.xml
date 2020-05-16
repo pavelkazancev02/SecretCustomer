@@ -23,7 +23,7 @@
             android:fontFamily="sans-serif-condensed-medium"
             android:text="@string/reward_withdrawal"
             android:textColor="@color/black1"
-            android:textSize="24dp"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -99,7 +99,7 @@
             android:onClick="@{viewModel::onWithdrawClick}"
             android:text="@string/withdraw"
             android:textColor="@color/white"
-            android:textSize="16dp"
+            android:textSize="16sp"
 
             android:theme="@style/Theme.MaterialComponents"
             app:layout_constraintEnd_toEndOf="parent"
@@ -118,7 +118,7 @@
             android:onClick="@{viewModel::onCancelClick}"
             android:text="@string/cancel"
             android:textColor="@color/cancelColor"
-            android:textSize="16dp"
+            android:textSize="16sp"
 
             android:theme="@style/Theme.MaterialComponents"
             app:layout_constraintEnd_toEndOf="parent"

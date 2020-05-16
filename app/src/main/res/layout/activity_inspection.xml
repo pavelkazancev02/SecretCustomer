@@ -7,7 +7,7 @@
     android:background="#FFFFFF"
     tools:context=".ui.activities.InspectionActivity">
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment2"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"

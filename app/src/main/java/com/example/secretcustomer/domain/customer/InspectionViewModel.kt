@@ -200,7 +200,7 @@ class InspectionViewModel
                         }
                         .subscribeBy(
                             {},
-                            { _ ->
+                            {
                                 _showLoadingBar.postValue(Event(false))
                                 _navigationEvents.postValue(
                                     Event(
@@ -231,7 +231,7 @@ class InspectionViewModel
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribeBy(
                             {},
-                            { _ ->
+                            {
                                 _showLoadingBar.postValue(Event(false))
                                 _navigationEvents.postValue(
                                     Event(

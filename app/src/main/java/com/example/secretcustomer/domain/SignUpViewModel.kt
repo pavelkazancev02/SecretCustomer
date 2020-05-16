@@ -2,7 +2,6 @@ package com.example.secretcustomer.domain
 
 import android.telephony.PhoneNumberUtils
 import android.util.Log
-import android.util.Patterns
 import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
